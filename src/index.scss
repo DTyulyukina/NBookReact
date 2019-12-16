@@ -1,0 +1,41 @@
+$bg-color: #808080;
+body{
+  color: #fff;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  background: linear-gradient(to right, #FF7259, #FEC356);
+}
+
+#root {
+  padding-left: 10px;
+  width: 1145px;
+  margin: auto;
+}
+
+.App {
+  display: flex;
+  justify-content: center;
+  width: 80%;
+  margin: auto;
+}
+
+.header{
+min-height: 70px;
+grid-area: header;
+font-variant: small-caps;
+font-stretch: ultra-expanded;
+font-weight: 100;
+
+.name{
+  padding: 18px;
+  font-size: 28px;
+  background: rgba(255, 255, 255, 0.1);
+  width: 128px;
+  text-shadow: $bg-color 0 0 2px;} 
+
+}
+
+.footer{
+  grid-area: footer;
+}
+
