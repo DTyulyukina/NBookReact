@@ -3,7 +3,6 @@ import { Switch, Route, BrowserRouter } from 'react-router-dom'
 
 import DailyTimetable from './DailyTimetable/';
 import Calendar       from './Calendar/';
-import Settings       from './ReactPlayer'
 
 import './Menu.scss';
 
@@ -50,6 +49,12 @@ class Link extends React.Component{
     render() {
          const url = "/" + this.props.label.toLowerCase().trim().replace(" ","-");
          return <a href={url}> {this.props.label} </a>
+    }
+}
+
+class Settings extends React.Component{
+    render() {
+         return <div> Settings </div>;
     }
 }
 
