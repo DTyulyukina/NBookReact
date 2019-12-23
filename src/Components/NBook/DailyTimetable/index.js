@@ -1,4 +1,4 @@
-import React, {useState}   from 'react';
+import React               from 'react';
 import moment              from 'moment';
 import PropTypes           from 'prop-types';
 import ContainerEvents     from './ContainerEvents'
@@ -11,7 +11,7 @@ export default class DailyTimetable extends React.Component {
 
         this.state = {
             date: moment()
-        }
+        };
 
         this.AddDay       = this.AddDay.bind(this);
         this.AddDayНоurs  = this.AddDayНоurs.bind(this);
@@ -27,7 +27,7 @@ export default class DailyTimetable extends React.Component {
     }
 
     updateDate(event, status){
-        let dateObject = Object.assign({}, this.state.date);
+        let dateObject = Object.assign({}, this.date);
         if(status === 'prev') {
             dateObject = moment(dateObject).subtract(1, "day");
         } else
@@ -95,13 +95,14 @@ export default class DailyTimetable extends React.Component {
 
     render() {
         let hour = this.hourDaysArrays();
+        console.log(this.state.date);
         return (
             <div className='content'>
                 <div className='days'>     
                   <this.AddDay /> 
                   <this.AddTimeTable dHours = { <this.AddDayНоurs hourDay={hour}/>}
                                      dForm  = { <this.AddTextForm hourDay={hour}/>} 
-                                     dEvent = { <ContainerEvents/> }/>
+                                     dEvent = { <ContainerEvents dates={this.state.date}/> }/>
                 </div>   
             </div>
         );
