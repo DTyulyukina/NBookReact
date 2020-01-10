@@ -1,6 +1,10 @@
 import React from "react";
 import moment from "moment";
+
 import "./Calendar.scss";
+
+import InstructionYears from './YearInstruction';
+import InstractionMonth from './MonthInstruction';
 
 export default class Calendar extends React.Component {
   constructor(){
@@ -49,9 +53,7 @@ export default class Calendar extends React.Component {
   monthNow(){
     return this.state.dateObject.format("MMMM");
   };
-  monthInstruction(){
-    return <th colSpan="7">Select month</th>;
-  };
+  
   monthSelect(event){
     this.setState({ShowMonthSelect: !this.state.ShowMonthSelect});
     event.preventDefault();
@@ -70,9 +72,6 @@ export default class Calendar extends React.Component {
   // years now
   yearNow(){
     return this.state.dateObject.format("Y");
-  };
-  yearInstruction(){
-    return <th colSpan="7">Select year</th>;
   };
   yearsSelect(event){
     this.setState({ShowYearsSelect: !this.state.ShowYearsSelect});
@@ -190,8 +189,8 @@ export default class Calendar extends React.Component {
       return <tr key={'array_y'+ i}>{array_y}</tr>
     });
 
-    let firstRow = <tr>{( this.state.ShowYearsSelect && <this.yearInstruction/> ) || 
-    ( this.state.ShowMonthSelect && <this.monthInstruction/> ) || weekdaysname}</tr>;
+    let firstRow = <tr>{( this.state.ShowYearsSelect && <InstructionYears/> ) || 
+    ( this.state.ShowMonthSelect && <InstractionMonth/> ) || weekdaysname}</tr>;
 
     let tables = ( this.state.ShowYearsSelect && array_y ) ||
     ( this.state.ShowMonthSelect && monthname ) || daysinmonth ;
