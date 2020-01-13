@@ -26,12 +26,10 @@ export default class Calendar extends React.Component {
       DayMounthYear: true
     };
 
-    this.monthSelect       = this.monthSelect.bind(this);
     this.updateMonthSelect = this.updateMonthSelect.bind(this);
     this.updateYearSelect  = this.updateYearSelect.bind(this);
     this.updateMonthLast   = this.updateMonthLast.bind(this);
     this.updateMonthPev    = this.updateMonthPev.bind(this);
-    this.rowMonth          = this.rowMonth.bind(this);
   }
 
   // day of mounth
