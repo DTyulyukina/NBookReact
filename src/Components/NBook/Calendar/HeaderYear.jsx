@@ -7,15 +7,11 @@ class HeaderYear extends React.Component {
 
         this.state = {
             yBool: props.yearBool, 
-            yDate: props.date
+            yDate: props.year
         };
-        this.yearNow = this.yearNow.bind(this);
         this.yearsSelect = this.yearsSelect.bind(this);
     }
 
-    yearNow(){
-        return this.state.yDate.format("Y");
-    };
     yearsSelect(event){
         this.setState({yBool: !this.state.yBool});
         event.preventDefault();
@@ -26,7 +22,7 @@ class HeaderYear extends React.Component {
             <tr className="name-year">
               <th colSpan={(this.state.yBool && 5)||7}
                   onClick={(e) => this.yearsSelect(e)}> 
-                  { this.yearNow() }
+                  { this.state.yDate }
               </th>
             </tr>
           );
@@ -34,8 +30,8 @@ class HeaderYear extends React.Component {
 } 
 
 HeaderYear.propTypes ={
-    yearBool : PropTypes.bool.isRequired,
-    date: PropTypes.object.isRequired
+    yearBool: PropTypes.bool.isRequired,
+    year: PropTypes.string.isRequired
 }
 
 export default HeaderYear;

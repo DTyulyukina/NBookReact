@@ -6,6 +6,7 @@ import "./Calendar.scss";
 import InstructionYears from './YearInstruction';
 import InstractionMonth from './MonthInstruction';
 import HeaderYear       from './HeaderYear';
+import HeadMounth       from './HeadMounth';
 
 export default class Calendar extends React.Component {
   constructor(){
@@ -27,7 +28,7 @@ export default class Calendar extends React.Component {
 
     this.monthSelect       = this.monthSelect.bind(this);
     this.updateMonthSelect = this.updateMonthSelect.bind(this);
-    //this.updateYearSelect  = this.updateYearSelect.bind(this);
+    this.updateYearSelect  = this.updateYearSelect.bind(this);
     this.updateMonthLast   = this.updateMonthLast.bind(this);
     this.updateMonthPev    = this.updateMonthPev.bind(this);
     this.rowMonth          = this.rowMonth.bind(this);
@@ -52,23 +53,6 @@ export default class Calendar extends React.Component {
   monthNow(){
     return this.state.dateObject.format("MMMM");
   };
-
-  //year 
-  updateYearSelect(event, year){
-    let dateObject = Object.assign({}, this.state.dateObject);
-    dateObject = moment(dateObject).set("year", year);
-    this.setState({
-      dateObject: dateObject,
-      ShowYearsSelect: !this.state.ShowYearsSelect
-      // ShowMonthSelect: !this.state.ShowMonthSelect
-    });
-    event.preventDefault();
-  };
-  
-  monthSelect(event){
-    this.setState({ShowMonthSelect: !this.state.ShowMonthSelect});
-    event.preventDefault();
-  };
   updateMonthSelect(event, index){
     let monthNo = this.month[index]; 
     let dateObject = Object.assign({}, this.state.dateObject);
@@ -76,6 +60,21 @@ export default class Calendar extends React.Component {
     this.setState({
       dateObject: dateObject,
       ShowMonthSelect: !this.state.ShowMonthSelect
+    });
+    event.preventDefault();
+  };
+
+  //year 
+  yearNow(){
+    return this.state.dateObject.format("Y");
+  };
+  updateYearSelect(event, year){
+    let dateObject = Object.assign({}, this.state.dateObject);
+    dateObject = moment(dateObject).set("year", year);
+    this.setState({
+      dateObject: dateObject,
+      ShowYearsSelect: !this.state.ShowYearsSelect
+      // ShowMonthSelect: !this.state.ShowMonthSelect
     });
     event.preventDefault();
   };
@@ -114,19 +113,6 @@ export default class Calendar extends React.Component {
       dateObject: dateObject
     })
     event.preventDefault();
-  }
-
-  rowMonth(props){
-    return (
-      <tr className="name-month">
-      <th className="arrow left" onClick={(e) => this.updateMonthPev(e) }/>
-      <th colSpan={(props.mBool && 2)||(props.yBool && 3)||5}
-          onClick={(e) => this.monthSelect(e)}>
-        { this.monthNow() }
-      </th>
-      <th className="arrow right" onClick={(e) => this.updateMonthLast(e) }/>
-    </tr>
-    );
   }
 
   render() {
@@ -180,8 +166,14 @@ export default class Calendar extends React.Component {
     return (
       <table className="calendar">
         <thead>  
-          <HeaderYear yearBool={this.state.ShowYearsSelect} data={this.state.dateObject} />
-          <this.rowMonth yBool = {this.state.ShowYearsSelect} mBool = {this.state.ShowMonthSelect}/>
+          <HeaderYear 
+          yearBool = {this.state.ShowYearsSelect} 
+          year = {this.yearNow()} />
+          <HeadMounth 
+          yearBool = {this.state.ShowYearsSelect} 
+          mounthBool = {this.state.ShowMonthSelect}
+          mounth = {this.monthNow()}
+          />
         </thead>
         <tbody>
           { firstRow }
