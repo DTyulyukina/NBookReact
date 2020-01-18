@@ -20,7 +20,7 @@ class HeaderYear extends React.Component {
     render(){
         return (
             <tr className="name-year">
-              <th colSpan={(this.state.yBool && 5)||7}
+              <th colSpan={this.state.yBool && 7}
                   onClick={(e) => this.yearsSelect(e)}> 
                   { this.state.yDate }
               </th>

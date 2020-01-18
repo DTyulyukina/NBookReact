@@ -3,15 +3,13 @@ import moment from "moment";
 
 import "./Calendar.scss";
 
-import InstructionYears from './YearInstruction';
-import InstractionMonth from './MonthInstruction';
-import HeaderYear       from './HeaderYear';
-import HeadMounth       from './HeadMounth';
+import HeaderYear from './HeaderYear';
+import HeadMounth from './HeadMounth';
+import Headers from './Headers';
 
-export default class Calendar extends React.Component {
+class Calendar extends React.Component {
   constructor(){
     super();
-    this.weekdays = moment.weekdays(true);
     this.month = moment.months();
 
     this.years = [];
@@ -28,8 +26,8 @@ export default class Calendar extends React.Component {
 
     this.updateMonthSelect = this.updateMonthSelect.bind(this);
     this.updateYearSelect  = this.updateYearSelect.bind(this);
-    this.updateMonthLast   = this.updateMonthLast.bind(this);
-    this.updateMonthPev    = this.updateMonthPev.bind(this);
+    /*this.updateMonthLast   = this.updateMonthLast.bind(this);
+    this.updateMonthPev    = this.updateMonthPev.bind(this);*/
   }
 
   // day of mounth
@@ -96,7 +94,7 @@ export default class Calendar extends React.Component {
     return rows
   };
 
-  updateMonthLast(event){
+  /*updateMonthLast(event){
     let dateObject = Object.assign({}, this.state.dateObject);
     dateObject = moment(dateObject).add(1, "month"); 
     this.setState({
@@ -111,14 +109,9 @@ export default class Calendar extends React.Component {
       dateObject: dateObject
     })
     event.preventDefault();
-  }
+  }*/
 
   render() {
-    // day of week
-    let weekdaysname = this.weekdays.map((day) => {
-      return <th key={day} className="week-day">{ day }</th>;
-    });
-
     // day of mounth in interface
     let blanks = [];
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
@@ -155,9 +148,6 @@ export default class Calendar extends React.Component {
       return <tr key={'array_y'+ i}>{array_y}</tr>
     });
 
-    let firstRow = <tr>{( this.state.ShowYearsSelect && <InstructionYears/> ) || 
-    ( this.state.ShowMonthSelect && <InstractionMonth/> ) || weekdaysname}</tr>;
-
     let tables = ( this.state.ShowYearsSelect && array_y ) ||
     ( this.state.ShowMonthSelect && monthname ) || daysinmonth ;
     
@@ -165,19 +155,23 @@ export default class Calendar extends React.Component {
       <table className="calendar">
         <thead>  
           <HeaderYear 
-          yearBool = {this.state.ShowYearsSelect} 
-          year = {this.yearNow()} />
+           yearBool = {this.state.ShowYearsSelect} 
+           year = {this.yearNow()} />
           <HeadMounth 
-          yearBool = {this.state.ShowYearsSelect} 
-          mounthBool = {this.state.ShowMonthSelect}
-          mounth = {this.monthNow()}
+           yearBool = {this.state.ShowYearsSelect} 
+           mounthBool = {this.state.ShowMonthSelect}
+           mounth = {this.monthNow()}
           />
         </thead>
         <tbody>
-          { firstRow }
+          <Headers 
+           yearBool = {this.state.ShowYearsSelect} 
+           mounthBool = {this.state.ShowMonthSelect}/>
           { tables }
         </tbody>
       </table>
     );
   }
 }
+
+export default Calendar;
