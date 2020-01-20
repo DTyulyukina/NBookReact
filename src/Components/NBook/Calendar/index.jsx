@@ -5,7 +5,7 @@ import "./Calendar.scss";
 
 import HeaderYear from './HeaderYear';
 import HeadMounth from './HeadMounth';
-import Headers from './Headers';
+import Headers    from './Headers';
 
 class Calendar extends React.Component {
   constructor(){

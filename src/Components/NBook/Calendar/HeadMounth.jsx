@@ -12,10 +12,11 @@ class HeadMounth extends React.Component {
         };
     }
     render(){
+        let col = this.state.mBool ? 2 : (this.state.yBool ? 3 : 5);
         return (
             <tr className="name-month">
                 <th className="arrow left" />
-                <th colSpan={(this.state.mBool && 2)||(this.state.yBool && 3)||5}>
+                <th colSpan={col}>
                     { this.state.mData }
                 </th>
                 <th className="arrow right" />

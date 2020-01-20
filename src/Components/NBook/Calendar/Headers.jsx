@@ -17,8 +17,8 @@ class Headers extends React.Component {
     }
 
     render(){
-        let weekdaysname = weekdays.map((nday) => {
-            return <th key={nday} className="week-day">{ nday }</th>;
+        let weekdaysname = weekdays.map((name) => {
+            return <th key={name} className="week-day">{ name }</th>;
         });
 
         return (
