@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class HeaderYear extends React.Component {
+    static propTypes ={
+        yearBool: PropTypes.bool.isRequired,
+        year: PropTypes.string.isRequired
+    }
+
     constructor(props){ 
         super(props);
 
@@ -29,10 +34,5 @@ class HeaderYear extends React.Component {
           );
     }
 } 
-
-HeaderYear.propTypes ={
-    yearBool: PropTypes.bool.isRequired,
-    year: PropTypes.string.isRequired
-}
 
 export default HeaderYear;

@@ -7,6 +7,11 @@ import HeaderInstruction from './HeaderInstruction';
 const weekdays = moment.weekdays(true);
 
 class Headers extends React.Component {
+    static propTypes ={
+        yearBool: PropTypes.bool.isRequired,
+        mounthBool: PropTypes.bool.isRequired
+    }
+
     constructor(props){ 
         super(props);
 
@@ -28,11 +33,6 @@ class Headers extends React.Component {
             </tr>
           );
     }
-} 
-
-Headers.propTypes ={
-    yearBool: PropTypes.bool.isRequired,
-    mounthBool: PropTypes.bool.isRequired
 }
 
 export default Headers;

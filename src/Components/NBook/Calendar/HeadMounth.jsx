@@ -2,6 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 class HeadMounth extends React.Component {
+    static propTypes ={
+        yearBool: PropTypes.bool.isRequired,
+        mounthBool: PropTypes.bool.isRequired,
+        mounth: PropTypes.string.isRequired
+    }
+
     constructor(props){ 
         super(props);
 
@@ -11,6 +17,7 @@ class HeadMounth extends React.Component {
             mData: props.mounth
         };
     }
+    
     render(){
         let col = this.state.mBool ? 2 : (this.state.yBool ? 3 : 5);
         return (
@@ -24,11 +31,5 @@ class HeadMounth extends React.Component {
         )
     }
 } 
-
-HeadMounth.propTypes ={
-    yearBool: PropTypes.bool.isRequired,
-    mounthBool: PropTypes.bool.isRequired,
-    mounth: PropTypes.string.isRequired
-}
 
 export default HeadMounth;
