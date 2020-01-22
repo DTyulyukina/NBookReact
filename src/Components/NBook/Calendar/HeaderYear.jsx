@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 class HeaderYear extends React.Component {
     static propTypes ={
+        yearBool: PropTypes.bool.isRequired,
         year: PropTypes.string.isRequired,
         onClickYear: PropTypes.func.isRequired
     }
@@ -12,10 +13,10 @@ class HeaderYear extends React.Component {
     }
 
     render(){
-        //let col = this.state.yBool ? 5 : 7;
+        let col = this.props.yearBool ? 5 : 7;
         return (
             <tr className="name-year">
-              <th colSpan="7"
+              <th colSpan={col}
                   onClick={(e) => this.props.onClickYear(e)}> 
                   { this.props.year }
               </th>
