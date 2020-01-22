@@ -27,6 +27,7 @@ class Calendar extends React.Component {
       table_year: this.years
     };
 
+    this.yearsSelect  = this.yearsSelect.bind(this);
     this.updateSelect = this.updateSelect.bind(this);
     /*this.updateMonthLast   = this.updateMonthLast.bind(this);
     this.updateMonthPev    = this.updateMonthPev.bind(this);*/
@@ -39,8 +40,15 @@ class Calendar extends React.Component {
   yearNow(){
     return this.state.dateObject.format("Y");
   };
+  yearsSelect(event){
+    this.setState({
+      ShowYearsSelect: !this.state.ShowYearsSelect
+    });
+    event.preventDefault();
+  };
 
   updateSelect(event, param, str){
+    console.log(1)
     let dateObject = Object.assign({}, this.props.dateObject);
     dateObject = moment(dateObject).set(str, param);
     if(str==='month'){
@@ -79,8 +87,9 @@ class Calendar extends React.Component {
       <table className="calendar">
         <thead>  
           <HeaderYear 
-           yearBool = {this.state.ShowYearsSelect} 
-           year = {this.yearNow()} />
+           year = {this.yearNow()} 
+           onClickYear = {this.yearsSelect}/>
+
           <HeadMounth 
            yearBool = {this.state.ShowYearsSelect} 
            mounthBool = {this.state.ShowMonthSelect}
@@ -90,6 +99,7 @@ class Calendar extends React.Component {
           <Headers 
            yearBool = {this.state.ShowYearsSelect} 
            mounthBool = {this.state.ShowMonthSelect}/>
+           
           <CalendarTable {...this.state}
            onChangeSelect = {this.updateSelect}
           />

@@ -91,7 +91,7 @@ class CalendarTable extends React.Component {
     let row_years = [];
     this.props.table_year.map((year, i) => {
       row_years.push(<td key={year + i} className="array-year" 
-      onClick={(e) => this.updateYearSelect(e, year, 'year')}>{year}</td>);
+      onClick={(e) => this.onChangeSelect(e, year, 'year')}>{year}</td>);
     })
     let array_y = [];
     this.addTable(5, 0, row_years).map((y, i) => {
