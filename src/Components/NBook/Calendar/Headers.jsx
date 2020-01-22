@@ -9,27 +9,21 @@ const weekdays = moment.weekdays(true);
 class Headers extends React.Component {
     static propTypes ={
         yearBool: PropTypes.bool.isRequired,
-        mounthBool: PropTypes.bool.isRequired
+        monthBool: PropTypes.bool.isRequired
     }
 
     constructor(props){ 
         super(props);
-
-        this.state = {
-            yBool: props.yearBool, 
-            mBool: props.monthNow
-        };
     }
 
     render(){
         let weekdaysname = weekdays.map((name) => {
             return <th key={name} className="week-day">{ name }</th>;
         });
-
         return (
             <tr>
-               { this.state.yBool ? <HeaderInstruction name="year"/> : 
-               ( this.state.mBool ? <HeaderInstruction name="mounth"/> : weekdaysname )}
+               { ( this.props.yearBool ? <HeaderInstruction name="year"/> : 
+                 ( this.props.monthBool ? <HeaderInstruction name="mounth"/> : weekdaysname ))}
             </tr>
           );
     }

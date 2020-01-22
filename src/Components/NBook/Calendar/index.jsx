@@ -89,16 +89,15 @@ class Calendar extends React.Component {
           <HeaderYear 
            year = {this.yearNow()} 
            onClickYear = {this.yearsSelect}/>
-
           <HeadMounth 
            yearBool = {this.state.ShowYearsSelect} 
-           mounthBool = {this.state.ShowMonthSelect}
-           mounth = {this.monthNow()} />
+           monthBool = {this.state.ShowMonthSelect}
+           month = {this.monthNow()} />
         </thead>
         <tbody>
           <Headers 
            yearBool = {this.state.ShowYearsSelect} 
-           mounthBool = {this.state.ShowMonthSelect}/>
+           monthBool = {this.state.ShowMonthSelect}/>
            
           <CalendarTable {...this.state}
            onChangeSelect = {this.updateSelect}

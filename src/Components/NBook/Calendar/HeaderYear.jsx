@@ -9,10 +9,6 @@ class HeaderYear extends React.Component {
 
     constructor(props){ 
         super(props);
-
-        this.state = {
-            yDate: props.year
-        };
     }
 
     render(){
@@ -21,7 +17,7 @@ class HeaderYear extends React.Component {
             <tr className="name-year">
               <th colSpan="7"
                   onClick={(e) => this.props.onClickYear(e)}> 
-                  { this.state.yDate }
+                  { this.props.year }
               </th>
             </tr>
           );
