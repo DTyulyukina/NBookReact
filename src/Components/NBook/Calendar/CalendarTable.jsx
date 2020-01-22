@@ -8,8 +8,8 @@ class CalendarTable extends React.Component {
     ShowYearsSelect: PropTypes.bool.isRequired,
     ShowMonthSelect: PropTypes.bool.isRequired, 
     DayMounthYear: PropTypes.bool.isRequired,
-    table_year: PropTypes.object.isRequired,
-    table_month: PropTypes.object.isRequired,
+    table_month: PropTypes.array.isRequired,
+    table_year: PropTypes.array.isRequired,
     onChangeSelect: PropTypes.func.isRequired
   }
 

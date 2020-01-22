@@ -28,8 +28,8 @@ class Headers extends React.Component {
 
         return (
             <tr>
-               {(( this.state.yBool && <HeaderInstruction name="year"/> ) || 
-                ( this.state.mBool && <HeaderInstruction name="mounth"/> ) || weekdaysname)}
+               { this.state.yBool ? <HeaderInstruction name="year"/> : 
+               ( this.state.mBool ? <HeaderInstruction name="mounth"/> : weekdaysname )}
             </tr>
           );
     }
