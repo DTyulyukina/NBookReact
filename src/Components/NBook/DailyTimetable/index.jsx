@@ -1,7 +1,9 @@
 import React               from 'react';
 import moment              from 'moment';
 import PropTypes           from 'prop-types';
-import ContainerEvents     from './ContainerEvents'
+
+import ContainerEvents  from './ContainerEvents';
+import DateNowHeader    from './DateNowHeader';
 
 import './DailyTimetable.scss';
 
@@ -13,9 +15,9 @@ export default class DailyTimetable extends React.Component {
             date: moment()
         };
 
-        this.AddDay       = this.AddDay.bind(this);
-        this.AddDayНоurs  = this.AddDayНоurs.bind(this);
-        this.AddTextForm  = this.AddTextForm.bind(this);
+        this.updateDate  = this.updateDate.bind(this);
+        this.AddDayНоurs = this.AddDayНоurs.bind(this);
+        this.AddTextForm = this.AddTextForm.bind(this);
     }
 
     hourDaysArrays(){
@@ -28,33 +30,15 @@ export default class DailyTimetable extends React.Component {
 
     updateDate(event, status){
         let dateObject = Object.assign({}, this.date);
-        if(status === 'prev') {
+        console.log(status)
+        if(status === "prev") {
             dateObject = moment(dateObject).subtract(1, "day");
         } else
-        if(status === 'last') {
+        if(status === "last") {
             dateObject = moment(dateObject).add(1, "day"); 
-        } else {
-            dateObject = moment();
         }
-        this.setState({
-            date: dateObject
-        })
+        this.setState({date: dateObject});
         event.preventDefault();
-    }
-
-    AddDay(){
-        return (
-            <div className='day'>
-                <div className="arrow left" onClick={(e) => this.updateDate(e, 'prev')}/>
-                <div id='number-day'> { this.state.date.format("D") } </div>
-                <div id='attr-day'>
-                    <div id='day-of-week'> { this.state.date.format("dddd") } </div>
-                    <div id='month-day'> { this.state.date.format("MMMM") } </div>
-                    <div id='year-day'> { this.state.date.format("Y") } </div>
-                </div>
-                <div className="arrow right" onClick={(e) => this.updateDate(e, 'last')}/>
-            </div>
-        );
     }
 
     AddDayНоurs(props){
@@ -95,11 +79,13 @@ export default class DailyTimetable extends React.Component {
 
     render() {
         let hour = this.hourDaysArrays();
-        console.log(this.state.date);
         return (
             <div className='content'>
                 <div className='days'>     
-                  <this.AddDay /> 
+                  <DateNowHeader 
+                  day = {this.state.date} 
+                  buttomsLastPrev = {this.updateDate}/> 
+
                   <this.AddTimeTable dHours = { <this.AddDayНоurs hourDay={hour}/>}
                                      dForm  = { <this.AddTextForm hourDay={hour}/>} 
                                      dEvent = { <ContainerEvents dates={this.state.date}/> }/>
