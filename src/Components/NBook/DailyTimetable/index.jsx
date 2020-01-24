@@ -8,8 +8,8 @@ import DateNowHeader    from './DateNowHeader';
 import './DailyTimetable.scss';
 
 export default class DailyTimetable extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
 
         this.state = {
             date: moment()
@@ -29,8 +29,8 @@ export default class DailyTimetable extends React.Component {
     }
 
     updateDate(event, status){
-        let dateObject = Object.assign({}, this.date);
-        console.log(status)
+        event.preventDefault();
+        let dateObject = Object.assign({}, this.state.date);
         if(status === "prev") {
             dateObject = moment(dateObject).subtract(1, "day");
         } else
@@ -38,7 +38,6 @@ export default class DailyTimetable extends React.Component {
             dateObject = moment(dateObject).add(1, "day"); 
         }
         this.setState({date: dateObject});
-        event.preventDefault();
     }
 
     AddDayНоurs(props){
@@ -83,8 +82,9 @@ export default class DailyTimetable extends React.Component {
             <div className='content'>
                 <div className='days'>     
                   <DateNowHeader 
-                  day = {this.state.date} 
-                  buttomsLastPrev = {this.updateDate}/> 
+                   day = {this.state.date} 
+                   buttomLastPrev = {this.updateDate} 
+                  /> 
 
                   <this.AddTimeTable dHours = { <this.AddDayНоurs hourDay={hour}/>}
                                      dForm  = { <this.AddTextForm hourDay={hour}/>} 

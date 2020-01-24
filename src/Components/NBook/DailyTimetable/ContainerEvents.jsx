@@ -10,8 +10,7 @@ class ContainerEvents extends React.Component {
     static propTypes = {
         componentEvent: PropTypes.object,
         newEvent:       PropTypes.object,
-        clickContainer: PropTypes.func
-    
+        clickContainer: PropTypes.func    
     };
 
     constructor(props) {

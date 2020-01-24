@@ -13,7 +13,7 @@ class CalendarTable extends React.Component {
     onChangeSelect: PropTypes.func.isRequired
   }
 
-  constructor(props){ 
+  constructor(props) { 
     super(props);
   }
 
