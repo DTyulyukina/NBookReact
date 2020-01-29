@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function AddEvent(props){
+function NewEvent(props){
     let containerText = document.getElementsByClassName('texts')[0].children;
     let coordX;
     for( let index=0; index < containerText.length; index++) {
@@ -15,8 +15,9 @@ function AddEvent(props){
         left: props.leftEvent + 'px',
         backgroundColor: props.color,
         width: '95%',
-        minHeight: '20px'
+        minHeight: '15px'
     };
+    console.log(newStyle);
     return (
         <div className="new-events" style={newStyle}>
             <span className="titel"></span>
@@ -27,8 +28,11 @@ function AddEvent(props){
     );
 }
 
-AddEvent.propTypes = {
-    hourDay: PropTypes.array.isRequired
+NewEvent.propTypes = {
+    topEvent: PropTypes.number.isRequired,
+    leftEvent: PropTypes.number.isRequired,
+    color: PropTypes.string.isRequired,
+    rect: PropTypes.object.isRequired
 }
 
-export default AddEvent;
+export default NewEvent;

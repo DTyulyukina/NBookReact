@@ -5,26 +5,17 @@ import "./Calendar.scss";
 
 import HeaderYear    from './HeaderYear';
 import HeadMounth    from './HeadMounth';
-import Headers       from './Header';
+import Headers       from './TableSelect';
 import CalendarTable from './CalendarTable';
 
 class Calendar extends React.Component {
   constructor(){
     super();
 
-    this.month = moment.months();
-    this.years = [];
-    for(let y = 0; y < 10; y++) {
-      this.years.push(Number(moment().format("Y")) + y);
-    }
-
     this.state = {
       dateObject: moment(),
       ShowYearsSelect: false,
-      ShowMonthSelect: false,
-      DayMounthYear: true,
-      table_month: this.month,
-      table_year: this.years
+      ShowMonthSelect: false
     };
 
     this.yearsSelect         = this.yearsSelect.bind(this);

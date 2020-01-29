@@ -7,14 +7,31 @@ class CalendarTable extends React.Component {
     dateObject: PropTypes.object.isRequired,
     ShowYearsSelect: PropTypes.bool.isRequired,
     ShowMonthSelect: PropTypes.bool.isRequired, 
-    DayMounthYear: PropTypes.bool.isRequired,
-    table_month: PropTypes.array.isRequired,
-    table_year: PropTypes.array.isRequired,
     onChangeSelect: PropTypes.func.isRequired
   }
 
   constructor(props) { 
     super(props);
+
+    this.state = {
+      table: []
+    }
+  }
+
+  componentWillMount(){
+    let daymonth = this.dayMonth();
+
+    this.setState({
+      table: daymonth
+    });
+  }
+
+  componentWillUnmount(){
+    let daymonth = this.dayMonth();
+
+    this.setState({
+      table: daymonth
+    });
   }
 
   firstDayOfMonth(){
@@ -49,7 +66,18 @@ class CalendarTable extends React.Component {
     return rows
   };
 
-  addDayMonth(){
+  arrayDateMonth(){
+    return moment.months();
+  }
+  arrayDateYear(){
+    let years = [];
+    for(let y = 0; y < 10; y++) {
+      years.push(Number(moment().format("Y")) + y);
+    }
+    return years;
+  } 
+
+  dayMonth(){
     let blanks = [];
     for (let i = 0; i < this.firstDayOfMonth(); i++) {
       blanks.push(
@@ -75,7 +103,7 @@ class CalendarTable extends React.Component {
 
   addMonth(){
     let row_month = [];
-    this.props.table_month.map((am, i) => {
+    this.arrayDateMonth().map((am, i) => {
       row_month.push(<td key={i} className="array-name-month" 
       onClick={(e) => this.props.onChangeSelect(e, am, 'month')}>{am}</td>);
     })
@@ -89,7 +117,7 @@ class CalendarTable extends React.Component {
 
   addYears(){
     let row_years = [];
-    this.props.table_year.map((year, i) => {
+    this.arrayDateYear().map((year, i) => {
       row_years.push(<td key={year + i} className="array-year" 
       onClick={(e) => this.props.onChangeSelect(e, year, 'year')}>{year}</td>);
     })
@@ -100,13 +128,29 @@ class CalendarTable extends React.Component {
 
     return array_y;
   };
+
+  shouldComponentUpdate(nextProps, nextState){
+    let tableCalendar;
+    if(this.props !== nextProps && this.state === nextState){
+      if(nextProps.ShowYearsSelect){
+        tableCalendar = this.addYears();
+      } else 
+      if(nextProps.ShowMonthSelect){
+        tableCalendar = this.addMonth();
+      } else 
+      if(!nextProps.ShowYearsSelect && !nextProps.ShowMonthSelect){
+        tableCalendar = this.dayMonth();
+      }
+      this.setState({
+        table: tableCalendar
+      });
+    }
+    return true;
+  }
     
-  render(){
-    let years = this.addYears();
-    let month = this.addMonth();
-    let daymonth = this.addDayMonth();
+  render(){ 
     return (
-      (this.props.ShowYearsSelect && years) || ( this.props.ShowMonthSelect && month) || daymonth
+      this.state.table
     );
   }
 } 
