@@ -1,0 +1,18 @@
+{
+    "date": {
+        "2020 01 20": {
+            "id": 1,
+            "titel": "Sample",
+            "text": "Somebody",
+            "top": "336",
+            "left": "5"
+        },
+        "2020 01 28": {
+            "id": 2,
+            "titel": "Winter",
+            "text": "Ted",
+            "top": "408",
+            "left": "5"
+        }    
+    }
+}
