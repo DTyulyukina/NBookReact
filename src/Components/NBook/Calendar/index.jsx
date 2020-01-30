@@ -5,7 +5,7 @@ import "./Calendar.scss";
 
 import HeaderYear    from './HeaderYear';
 import HeadMounth    from './HeadMounth';
-import Headers       from './TableSelect';
+import TableSelect   from './TableSelect';
 import CalendarTable from './CalendarTable';
 
 class Calendar extends React.Component {
@@ -92,7 +92,7 @@ class Calendar extends React.Component {
            onClickUpdateButtom = {this.updateMonthLastPrev}/>
         </thead>
         <tbody>
-          <Headers 
+          <TableSelect 
            yearBool = {this.state.ShowYearsSelect} 
            monthBool = {this.state.ShowMonthSelect}/>
            

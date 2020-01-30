@@ -1,7 +1,7 @@
 import React     from 'react';
 import PropTypes from 'prop-types';
 
-import NewEvent from './NewEvent';
+import NewEvent from './NewEvent/NewEvent';
 import dataNews from './data';
 
 import './DailyTimetable.scss';
@@ -21,7 +21,7 @@ class ContainerEvents extends React.Component {
         let daysEvents = [];
         dataNews.task.map((line) => {
             if (line.day === day){
-                daysEvents.push(<NewEvent id={line.id} 
+                daysEvents.push(<NewEvent key={line.id}
                                           topEvent={Number(line.top)} 
                                           leftEvent={Number(line.left)} 
                                           color={Colors.two}/>);
