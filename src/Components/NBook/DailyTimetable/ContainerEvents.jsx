@@ -31,6 +31,25 @@ class ContainerEvents extends React.Component {
         return daysEvents;
     }
 
+    updateSources(day, topEvent, leftEvent){
+        let count = 1;
+        dataNews.task.map((line) => {
+            if (line.day === day ){
+                count++;
+            }
+          }
+        );
+        let event = {
+            "date": this.props.date,
+            "id": count,
+            "titel": "",
+            "text": "",
+            "top": topEvent,
+            "left": leftEvent};
+        let str = JSON.stringify(event);
+        dataNews.task.push(str);
+    }
+
     componentWillMount(){
         this.setState({
             componentEvent: this.loaderSources(dataNews, this.props.dates.format("L"))
@@ -43,7 +62,7 @@ class ContainerEvents extends React.Component {
         });
     }
 
-    componentDidUpdate(prevProps) {
+    componentDidUpdate(prevProps){
         if (this.props.dates !== prevProps.dates) {
             this.setState({
                 componentEvent: this.loaderSources(dataNews, this.props.dates.format("L"))
@@ -62,11 +81,11 @@ class ContainerEvents extends React.Component {
             topEvent = containerText[index].getBoundingClientRect().top - rect.top;
             }
         }
+        this.updateSources(this.props.dates, topEvent, leftEvent);
+        let newEvent = <NewEvent topEvent={topEvent} leftEvent={leftEvent} color={Colors.two}/>;
+        let arrayEvent = [...this.state.componentEvent, newEvent];
         this.setState({
-            componentEvent: <NewEvent  
-                             topEvent={topEvent} 
-                             leftEvent={leftEvent} 
-                             color={Colors.two}/>
+            componentEvent: arrayEvent
         });
         event.preventDefault();
     }
