@@ -1,18 +1,20 @@
 {
-    "date": {
-        "2020 01 20": {
+    "task": [
+        {
+            "day": "01/29/2020",
             "id": 1,
             "titel": "Sample",
             "text": "Somebody",
             "top": "336",
             "left": "5"
         },
-        "2020 01 28": {
+        {
+            "day": "01/29/2020",
             "id": 2,
             "titel": "Winter",
-            "text": "Ted",
+            "text": "Somebody",
             "top": "408",
             "left": "5"
-        }    
-    }
+        }
+    ] 
 }
