@@ -17,11 +17,9 @@ class ContainerEvents extends React.Component {
         };
     }
 
-    componentWillMount(){
-        const datas = dataNews;
-        let day = this.props.dates.format("L");
+    loaderSources(dataNews, day){
         let daysEvents = [];
-        datas.task.map((line) => {
+        dataNews.task.map((line) => {
             if (line.day === day){
                 daysEvents.push(<NewEvent id={line.id} 
                                           topEvent={Number(line.top)} 
@@ -30,10 +28,27 @@ class ContainerEvents extends React.Component {
             }
           }
         );
+        return daysEvents;
+    }
 
+    componentWillMount(){
         this.setState({
-            componentEvent: daysEvents
+            componentEvent: this.loaderSources(dataNews, this.props.dates.format("L"))
         });
+    }
+
+    componentWillUnmount(){
+        this.setState({
+            componentEvent: []
+        });
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.dates !== prevProps.dates) {
+            this.setState({
+                componentEvent: this.loaderSources(dataNews, this.props.dates.format("L"))
+            });
+        }
     }
 
     AddNewRecord(event){ 
