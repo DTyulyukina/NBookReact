@@ -1,20 +1,14 @@
-{
-    "task": [
-        {
-            "day": "01/29/2020",
-            "id": 1,
-            "titel": "Sample",
-            "text": "Somebody",
-            "top": "336",
-            "left": "5"
-        },
-        {
-            "day": "01/29/2020",
-            "id": 2,
-            "titel": "Winter",
-            "text": "Somebody",
-            "top": "408",
-            "left": "5"
-        }
-    ] 
-}
+[
+    {
+        "day": "01/29/2020",
+        "text": "Somebody",
+        "top": "336",
+        "left": "5"
+    },
+    {
+        "day": "01/29/2020",
+        "text": "Somebody",
+        "top": "408",
+        "left": "5"
+    }
+] 

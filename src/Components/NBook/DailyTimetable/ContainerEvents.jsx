@@ -1,7 +1,7 @@
-import React     from 'react';
-import PropTypes from 'prop-types';
+import React          from 'react';
+import PropTypes      from 'prop-types';
 
-import NewEvent from './NewEvent/NewEvent';
+import NewEvent from './Event/NewEvent';
 import dataNews from './data';
 
 import './DailyTimetable.scss';
@@ -19,7 +19,7 @@ class ContainerEvents extends React.Component {
 
     loaderSources(dataNews, day){
         let daysEvents = [];
-        dataNews.task.map((line) => {
+        dataNews.map((line) => {
             if (line.day === day){
                 daysEvents.push(<NewEvent key={line.id}
                                           topEvent={Number(line.top)} 
@@ -32,22 +32,18 @@ class ContainerEvents extends React.Component {
     }
 
     updateSources(day, topEvent, leftEvent){
-        let count = 1;
-        dataNews.task.map((line) => {
-            if (line.day === day ){
-                count++;
-            }
-          }
-        );
+        let count = dataNews.length;
         let event = {
-            "date": this.props.date,
-            "id": count,
-            "titel": "",
+            "date": day,
             "text": "",
-            "top": topEvent,
-            "left": leftEvent};
-        let str = JSON.stringify(event);
-        dataNews.task.push(str);
+            "top": topEvent.toString(),
+            "left": leftEvent.toString()};
+        let array = [...dataNews, event];
+        localStorage.setItem('items', JSON.stringify(array));
+        let fs = require('fs');
+        //const data = JSON.parse(localStorage.getItem('items'));
+        //console.log(data);
+        return count;
     }
 
     componentWillMount(){
@@ -78,11 +74,11 @@ class ContainerEvents extends React.Component {
         for( let index=0; index < containerText.length; index++) {
            let y = topEvent - containerText[index].getBoundingClientRect().top;
            if( 0 < y && y < 20 ) { 
-            topEvent = containerText[index].getBoundingClientRect().top - rect.top;
+               topEvent = containerText[index].getBoundingClientRect().top - rect.top;
             }
         }
-        this.updateSources(this.props.dates, topEvent, leftEvent);
-        let newEvent = <NewEvent topEvent={topEvent} leftEvent={leftEvent} color={Colors.two}/>;
+        let keys = this.updateSources(this.props.dates.format("L"), topEvent, leftEvent);
+        let newEvent = <NewEvent key={keys} topEvent={topEvent} leftEvent={leftEvent} color={Colors.two}/>;
         let arrayEvent = [...this.state.componentEvent, newEvent];
         this.setState({
             componentEvent: arrayEvent
@@ -93,7 +89,8 @@ class ContainerEvents extends React.Component {
     render() {
         const {dates} = this.props;
         return (
-            <div className="container-records" onClick={(e) => this.AddNewRecord(e, dates)}>
+            <div className="container-records" 
+                 onClick={(e) => this.AddNewRecord(e, dates)}>
                 { this.state.componentEvent }
             </div>
         );
