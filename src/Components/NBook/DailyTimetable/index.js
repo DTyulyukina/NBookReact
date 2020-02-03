@@ -53,8 +53,8 @@ export default class DailyTimetable extends React.Component {
                       { <DayHours hourDay={this.hourDaysArrays()}/> }
                     </div>  
                     <div className='texts'>
-                      { <FormText hourDay={this.hourDaysArrays()}/>}
-                      { <ContainerEvents dates={this.state.date}/> }
+                      { <FormText hourDay={this.hourDaysArrays()}/> }
+                      { <ContainerEvents dates={this.state.date}/>  }
                     </div>
                   </div> 
                 </div>   
