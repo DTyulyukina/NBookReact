@@ -1,12 +1,14 @@
 [
     {
         "day": "01/29/2020",
+        "titel": "Important",
         "text": "Somebody",
         "top": "336",
         "left": "5"
     },
     {
         "day": "01/29/2020",
+        "titel": "!!!",
         "text": "Somebody",
         "top": "408",
         "left": "5"
