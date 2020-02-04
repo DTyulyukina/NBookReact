@@ -1,7 +1,6 @@
 import React               from 'react';
 import moment              from 'moment';
 
-import ContainerEvents  from './ContainerEvents';
 import DateNowHeader    from './DateNowHeader';
 import DayHours         from './DayHours';
 import FormText         from './FormText';
@@ -53,8 +52,9 @@ export default class DailyTimetable extends React.Component {
                       { <DayHours hourDay={this.hourDaysArrays()}/> }
                     </div>  
                     <div className='texts'>
-                      { <FormText hourDay={this.hourDaysArrays()}/> }
-                      { <ContainerEvents dates={this.state.date}/>  }
+                      { <FormText 
+                         day = {this.state.date}
+                         hourDay={this.hourDaysArrays()}/> }
                     </div>
                   </div> 
                 </div>   

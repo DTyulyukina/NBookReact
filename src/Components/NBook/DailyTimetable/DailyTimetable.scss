@@ -35,16 +35,18 @@
       grid-auto-columns: 100px 800px; 
       grid-template-areas: "a b";
       border: solid 1px #e1e1e1;
-      height: 719px;
+      height: 721px;
       font-size: 16px;
       margin: auto; 
 
       .hours{
         grid-area: a;
         width: 100%;
-        .hoursofday {
-          padding: 12px;
-          border: solid 1px #e1e1e1
+        border: solid 1px #e1e1e1;
+        .hoursnum{
+          padding: 11px;
+          border-bottom: solid 1px #e1e1e1;
+          height: 25px;
         }
       }
       .texts{
@@ -55,14 +57,15 @@
         -ms-flex-direction: column;
         flex-direction: column;
         .hoursoftext{
-          padding: 11px;
           border: solid 1px #e1e1e1;
+          height: 1.38em;
         }
         .container-records {
-          position: absolute;
-          margin: auto;
-          width: 800px;
-          height: 719px;
+          position: relative;
+          margin: 0px;
+          padding: 0px;
+          width: 100%;
+          height: 100%;
 
           .new-events{
             max-height: 100%;
@@ -71,7 +74,7 @@
             -ms-flex-align: start;
             align-items: flex-start;
             overflow: hidden;
-            position: absolute;
+            position: relative;
             border-radius: 10px;
             border: 1px solid #fff;
             display: inline-flex;

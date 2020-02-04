@@ -35,10 +35,8 @@ class ContainerEvents extends React.Component {
         let event = {
             "day": day,
             "titel": "",
-            "text": "",
-            "top": topEvent.toString(),
-            "left": leftEvent.toString()};
-        let array = [...this.state.componentEvent, event];
+            "text": ""};
+        let array = [...localStorage, event];
         localStorage.setItem('items', JSON.stringify(array));
         let data = JSON.parse(localStorage.getItem('items'));
         let count = data.length;
@@ -68,8 +66,8 @@ class ContainerEvents extends React.Component {
         }
     }
 
-    addNewRecord(event){ 
-        let leftEvent = 5;
+    addNewRecord(event, key){ 
+        /*let leftEvent = 5;
         let topEvent = event.pageY;  
         let rect =  event.target.getBoundingClientRect();
         let containerText = document.getElementsByClassName('texts')[0].children;
@@ -78,9 +76,9 @@ class ContainerEvents extends React.Component {
            if( 0 < y && y < 20 ) { 
                topEvent = containerText[index].getBoundingClientRect().top - rect.top;
             }
-        }
-        let keys = this.updateSources(this.props.dates.format("L"), topEvent, leftEvent);
-        let newEvent = <NewEvent key={keys} topEvent={topEvent} leftEvent={leftEvent} color={Colors.two}/>;
+        }*/
+        let keys = this.updateSources(this.props.dates.format("L"));
+        let newEvent = <NewEvent key={key+' '+keys} color={Colors.two}/>;
         let arrayEvent = [...this.state.componentEvent, newEvent];
         this.setState({
             componentEvent: arrayEvent
@@ -92,7 +90,7 @@ class ContainerEvents extends React.Component {
         const {dates} = this.props;
         return (
             <div className="container-records" 
-                 onClick={(e) => this.addNewRecord(e, dates)}>
+                 onClick={(e) => this.addNewRecord(escape)}>
                 { this.state.componentEvent }
             </div>
         );
