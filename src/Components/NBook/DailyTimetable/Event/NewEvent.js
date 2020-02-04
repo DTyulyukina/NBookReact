@@ -16,7 +16,7 @@ class NewEvent extends React.Component{
             top: this.props.topEvent + 'px',
             left: this.props.leftEvent + 'px',
             backgroundColor: this.props.color,
-            width: '95%',
+            width: '25%',
             minHeight: '15px'
         };
         this.setState({
@@ -30,11 +30,6 @@ class NewEvent extends React.Component{
         });
     }
 
-    deleteEvents(event, id){
-        localStorage.removeItem(id);
-        event.preventDefault();
-    }
-
     render(){
         return (
             <div className="new-events" style={this.state.styles}>
@@ -46,9 +41,6 @@ class NewEvent extends React.Component{
 }
 
 NewEvent.propTypes = {
-    key: PropTypes.number.isRequired,
-    topEvent: PropTypes.number.isRequired,
-    leftEvent: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired
 }
 

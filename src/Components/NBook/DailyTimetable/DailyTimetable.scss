@@ -66,19 +66,17 @@
           padding: 0px;
           width: 100%;
           height: 100%;
+          display: inline-flex;
+          justify-content: left;
+          -ms-flex-flow: left;
 
           .new-events{
             max-height: 100%;
-            -ms-flex-flow: row wrap;
-            flex-flow:  row wrap;
-            -ms-flex-align: start;
-            align-items: flex-start;
-            overflow: hidden;
-            position: relative;
             border-radius: 10px;
             border: 1px solid #fff;
-            display: inline-flex;
-            justify-content: flex-end;
+            overflow: hidden;
+            position: relative;
+           
             .cross{
               margin-right: 5px;
               font-size: 18px;

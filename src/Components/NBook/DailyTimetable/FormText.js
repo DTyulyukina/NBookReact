@@ -7,8 +7,8 @@ function FormTex(props){
     let array_form = array.map((hour) => {
         return (
         <React.Fragment key={hour} >
-            <div className="hoursoftext">{<ContainerEvents key={hour} dates={props.day}/>}</div>
-            <div className="hoursoftext">{<ContainerEvents key={hour + 0.5} dates={props.day}/>}</div>
+            <div className="hoursoftext">{<ContainerEvents key={hour} id={hour} dates={props.day}/>}</div>
+            <div className="hoursoftext">{<ContainerEvents key={hour + 0.5} id={hour + 0.5} dates={props.day}/>}</div>
         </React.Fragment>
         )
     })
