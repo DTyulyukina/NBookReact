@@ -20,10 +20,9 @@ class ContainerEvents extends React.Component {
         let daysEvents = [];
         let data = JSON.parse(localStorage.getItem('items'));
         data.map((line, index) => {
-            if (line.day === day){
+            if (line !== null && line.day === day){
                 if (Number(line.hour) === id){
-                    daysEvents.push(<NewEvent key={index}
-                        color={Colors.two}/>);
+                    daysEvents.push(<NewEvent key={index} color={Colors.two}/>);
                 }
             }
           }
@@ -31,13 +30,13 @@ class ContainerEvents extends React.Component {
         return daysEvents;
     }
 
-    updateSources(localStorage, day, id){
+    addSources(localStorage, day, id){
         let event = {
             "day": day,
             "titel": "",
             "text": "",
             "hour": id};
-        let array = [...localStorage, event];
+        let array = [...JSON.parse(localStorage.getItem('items')), event];
         localStorage.setItem('items', JSON.stringify(array));
         let data = JSON.parse(localStorage.getItem('items'));
         let count = data.length;
@@ -65,8 +64,8 @@ class ContainerEvents extends React.Component {
         }
     }
 
-    addNewRecord(event, id){ 
-        let keys = this.updateSources(localStorage, this.props.dates.format("L"), id);
+    addNewRecord(event, dates, id){ 
+        let keys = this.addSources(localStorage, dates.format("L"), id);
         let newEvent = <NewEvent key={keys} color={Colors.two}/>;
         let arrayEvent = [...this.state.componentEvent, newEvent];
         this.setState({
@@ -76,10 +75,9 @@ class ContainerEvents extends React.Component {
     }
 
     render() {
-        const {dates} = this.props
         return (
             <div className="container-records" 
-                 onClick={(e) => this.addNewRecord(e, dates, this.props.id)}>
+                 onClick={(e) => this.addNewRecord(e, this.props.dates, this.props.id)}>
                 { this.state.componentEvent }
             </div>
         );
