@@ -12,7 +12,8 @@ class ContainerEvents extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            componentEvent: []
+            componentEvent: [],
+            onMouseUp: false
         };
     }
 
@@ -21,7 +22,7 @@ class ContainerEvents extends React.Component {
         let data = JSON.parse(localStorage.getItem('items'));
         data.map((line, index) => {
             if (line !== null && line.day === day){
-                if (Number(line.hour) === id){
+                if (Number(line.hour_start) === id){
                     daysEvents.push(<NewEvent key={index} color={Colors.two}/>);
                 }
             }
@@ -35,7 +36,7 @@ class ContainerEvents extends React.Component {
             "day": day,
             "titel": "",
             "text": "",
-            "hour": id};
+            "hourstart": id};
         let array = [...JSON.parse(localStorage.getItem('items')), event];
         localStorage.setItem('items', JSON.stringify(array));
         let data = JSON.parse(localStorage.getItem('items'));
@@ -65,19 +66,21 @@ class ContainerEvents extends React.Component {
     }
 
     addNewRecord(event, dates, id){ 
-        let keys = this.addSources(localStorage, dates.format("L"), id);
-        let newEvent = <NewEvent key={keys} color={Colors.two}/>;
-        let arrayEvent = [...this.state.componentEvent, newEvent];
-        this.setState({
-            componentEvent: arrayEvent
-        });
+        if(event.target.className === 'container-records'){
+            let keys = this.addSources(localStorage, dates.format("L"), id);
+            let newEvent = <NewEvent key={keys} color={Colors.two}/>;
+            let arrayEvent = [...this.state.componentEvent, newEvent];
+            this.setState({
+                componentEvent: arrayEvent
+            });
+        }
         event.preventDefault();
     }
 
     render() {
         return (
             <div className="container-records" 
-                 onClick={(e) => this.addNewRecord(e, this.props.dates, this.props.id)}>
+                onСlick={(e) => this.addNewRecord(e, this.props.dates, this.props.id) }>
                 { this.state.componentEvent }
             </div>
         );

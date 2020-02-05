@@ -17,7 +17,7 @@ class NewEvent extends React.Component{
             left: this.props.leftEvent + 'px',
             backgroundColor: this.props.color,
             width: '25%',
-            minHeight: '15px'
+            minHeight: '17px'
         };
         this.setState({
             styles: newStyle
@@ -30,11 +30,17 @@ class NewEvent extends React.Component{
         });
     }
 
+    mouseUP(event){
+        if(event.target.className === 'new-events'){
+            
+        }
+        event.preventDefault();
+    }
+
     render(){
         return (
-            <div className="new-events" style={this.state.styles}>
+            <div className="new-events" style={this.state.styles} onClick={(e)=>this.mouseUP(e)}>
                 <OptionNews className="titel"/>
-                <OptionNews className="text"/>
             </div>
         );
     }

@@ -3,12 +3,12 @@
         "day": "02/03/2020",
         "titel": "Important",
         "text": "Somebody",
-        "hour": "9"
+        "hour_start": "9"
     },
     {
         "day": "02/03/2020",
         "titel": "!!!",
         "text": "Somebody",
-        "hour": "11"
+        "hour_start": "11"
     }
 ] 

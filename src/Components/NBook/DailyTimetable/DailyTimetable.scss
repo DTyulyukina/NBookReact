@@ -76,8 +76,11 @@
             border: 1px solid #fff;
             overflow: hidden;
             position: relative;
-            z-index: 2;
-           
+            z-index: 1000;
+            cursor: pointer;
+            touch-action: manipulation;
+            margin: 1px;
+            
             .cross{
               margin-right: 5px;
               font-size: 18px;
