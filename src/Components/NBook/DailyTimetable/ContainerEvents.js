@@ -12,8 +12,7 @@ class ContainerEvents extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            componentEvent: [],
-            onMouseUp: false
+            componentEvent: []
         };
     }
 
@@ -79,8 +78,7 @@ class ContainerEvents extends React.Component {
 
     render() {
         return (
-            <div className="container-records" 
-                onСlick={(e) => this.addNewRecord(e, this.props.dates, this.props.id) }>
+            <div className="container-records" onClick={(e) => this.addNewRecord(e, this.props.dates, this.props.id)} >
                 { this.state.componentEvent }
             </div>
         );
