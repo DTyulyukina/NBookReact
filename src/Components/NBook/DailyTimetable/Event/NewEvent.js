@@ -12,12 +12,19 @@ class NewEvent extends React.Component{
     }
 
     componentDidMount(){
+        let height = null;
+        if(this.props.start === this.props.end){
+            height = 17 + 'px';
+        }else
+        if(this.props.start < this.props.end){
+            height = ((this.props.end - this.props.start)/0.5)*17;
+        }
         let newStyle = {
             top: this.props.topEvent + 'px',
             left: this.props.leftEvent + 'px',
             backgroundColor: this.props.color,
             width: '25%',
-            minHeight: '17px'
+            minHeight: height
         };
         this.setState({
             styles: newStyle
@@ -30,16 +37,9 @@ class NewEvent extends React.Component{
         });
     }
 
-    mouseUP(event){
-        if(event.target.className === 'new-events'){
-            
-        }
-        event.preventDefault();
-    }
-
     render(){
         return (
-            <div className="new-events" style={this.state.styles} onClick={(e)=>this.mouseUP(e)}>
+            <div className="new-events" style={this.state.styles}>
                 <OptionNews className="titel"/>
             </div>
         );
@@ -47,6 +47,8 @@ class NewEvent extends React.Component{
 }
 
 NewEvent.propTypes = {
+    start: PropTypes.number.isRequired,
+    end: PropTypes.number.isRequired,
     color: PropTypes.string.isRequired
 }
 
