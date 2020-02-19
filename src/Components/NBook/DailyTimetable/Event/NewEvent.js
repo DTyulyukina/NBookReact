@@ -14,7 +14,7 @@ class NewEvent extends React.Component{
     componentDidMount(){
         let height = null;
         if(this.props.start === this.props.end){
-            height = 17 + 'px';
+            height = 20 + 'px';
         }else
         if(this.props.start < this.props.end){
             height = ((this.props.end - this.props.start)/0.5)*17;

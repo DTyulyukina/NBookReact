@@ -1,16 +1,16 @@
 [
     {
-        "day": "02/03/2020",
+        "day": "02/17/2020",
         "titel": "Important",
         "text": "Somebody",
-        "hour_start": "9",
-        "hour_end": "9"
+        "hour_start": 9,
+        "hour_end": 9
     },
     {
-        "day": "02/10/2020",
+        "day": "02/18/2020",
         "titel": "!!!",
         "text": "Somebody",
-        "hour_start": "11",
-        "hour_end": "12"
+        "hour_start": 11,
+        "hour_end": 12
     }
 ] 
