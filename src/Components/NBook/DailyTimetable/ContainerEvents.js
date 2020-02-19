@@ -31,17 +31,11 @@ class ContainerEvents extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.dates !== prevProps.dates){
+        if (this.props.dates !== prevProps.dates || this.props.keyEvent !== prevProps.keyEvent){
             this.setState({
                 componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)
             });
         }
-        if(this.props.keyEvent !== prevProps.keyEvent){
-            this.setState({
-                componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)
-            });
-        }
-        console.log('Update Component ContainerEvents')
     }
 
     /*newEvent(id_start, id_end){
