@@ -13,6 +13,7 @@ class ContainerEvents extends React.Component {
         super(props);
 
         this.state = {
+            rowClass: 'container-records', 
             componentEvent: []
         }
     }
@@ -36,18 +37,8 @@ class ContainerEvents extends React.Component {
                 componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)
             });
         }
-    }
 
-    /*newEvent(id_start, id_end){
-        this.addSources( localStorage, 
-                        this.props.dates.format("L"), 
-                        id_start, id_end);
-        let newEvent = <NewEvent key={this.props.keyEvent + 1} 
-                                 color="#FF0000" 
-                                 start={id_start} 
-                                 end={id_end} />;
-        return newEvent;
-    }*/
+    }
 
     loaderSources(localStorage, day, id){
         let daysEvents = [];
@@ -68,9 +59,9 @@ class ContainerEvents extends React.Component {
 
     render() {
         return (
-            <div className={this.props.table}  
+            <div className={this.state.rowClass + this.props.activeClass}  
                  onMouseDown = {this.props.clickStart.bind(this, this.props.id)}
-                 //onMouseMove = {this.props.moveMouse.bind(this, this.props.id)}
+                 onMouseMove = {this.props.moveMouse.bind(this, this.props.id)}
                  onMouseUp = {this.props.clickEnd.bind(this, this.props.id)}
             >
                 { this.state.componentEvent }
@@ -82,10 +73,13 @@ class ContainerEvents extends React.Component {
 ContainerEvents.propTypes = {
     id: PropTypes.number.isRequired,
     dates: PropTypes.object.isRequired,
-    table: PropTypes.string.isRequired, 
+    nameClass: PropTypes.string, 
+    clickEvent: PropTypes.bool,
     clickStart: PropTypes.func.isRequired,
     keyEvent: PropTypes.number,
-    clickEnd: PropTypes.func.isRequired
+    clickEnd: PropTypes.func.isRequired,
+    activeClass: PropTypes.string.isRequired,
+    moveMouse: PropTypes.func.isRequired
 }
 
 export default ContainerEvents;

@@ -42,19 +42,19 @@ export default class DailyTimetable extends React.Component {
         return (
             <div className='content'>
                 <div className='days'>     
-                  <DateNowHeader 
+                  {<DateNowHeader 
                    day = {this.state.date} 
                    buttomLastPrev = {this.updateDate} 
-                  /> 
+                  />}
 
                   <div className="DailyTimetable">
                     <div className='hours'>
-                      { <DayHours hourDay={this.hourDaysArrays()}/> }
+                      {<DayHours hourDay={this.hourDaysArrays()}/>}
                     </div>  
                     <div className='texts'>
-                      { <FormText 
+                      {<FormText 
                          day = {this.state.date}
-                         hourDay={this.hourDaysArrays()}/> }
+                         hourDay={this.hourDaysArrays()}/>}
                     </div>
                   </div> 
                 </div>   

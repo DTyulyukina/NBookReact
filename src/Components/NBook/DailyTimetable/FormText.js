@@ -7,19 +7,20 @@ class FormTex extends React.Component{
         super(props);
 
         this.state = {
-            activeTable: 'container-records',
+            activeClass: ' ',
             clickEvent: false,
             keyEvent: null,
             startEvent: null,
-            endEvent: null
+            moveId: [], 
+            moveMouse: false
         }
 
         this.clickStart  = this.clickStart.bind(this);
-        //this.updateEvent = this.updateEvent.bind(this);
+        this.updateEvent = this.updateEvent.bind(this);
         this.clickEnd    = this.clickEnd.bind(this);
     }
 
-    clickStart(id){  
+    clickStart(id){ 
         this.setState({
             clickEvent: !this.state.clickEvent,
             startEvent: id
@@ -30,14 +31,24 @@ class FormTex extends React.Component{
         if(this.state.clickEvent){
             let key = this.addSources(this.props.day.format("L"), this.state.startEvent, id);
             this.setState({
+                activeClass: ' ',
                 clickEvent: !this.state.clickEvent,
-                sourseEvent: localStorage,
                 keyEvent: key,
                 startEvent: null,
-                endEvent: null
+                moveId: []
             });
         }
-        console.log('Click Events')
+    }
+
+    updateEvent(id){
+        let array = [... this.state.moveId, id];
+        if(this.state.clickEvent){
+            this.setState({
+                moveMouse: !this.state.moveMouse,
+                moveId: array
+            });
+        }
+        console.log(this.state.moveId)
     }
 
     addSources(day, start, end){
@@ -52,41 +63,53 @@ class FormTex extends React.Component{
         let data = JSON.parse(localStorage.getItem('items'));
         let count = data.length;
         return count;
-
     }
 
-    render(){
+    activeClassRow(hours){
+        let status = '';
+        if(this.state.startEvent === hours){
+            status = ' active';
+        }
+        if(this.state.moveMouse && this.state.moveId > this.state.startEvent){
+            status = ' active';
+        }
+        return status;
+    }
+
+    render(){ 
         let array = this.props.hourDay.map((hour) => {
             return (
-                <React.Fragment key={hour} >
+                <React.Fragment key={hour}>
                    <div className="hoursoftext">
                        {<ContainerEvents key = {hour} 
                                          id = {hour} 
                                          dates = {this.props.day}
-                                         table = {this.state.activeTable}
+                                         clickEvent = {this.state.clickEvent}
                                          clickStart = {this.clickStart}
                                          keyEvent={this.state.keyEvent}
                                          clickEnd = {this.clickEnd}
+                                         activeClass = {this.activeClassRow(hour)}
+                                         moveMouse = {this.updateEvent}
                                          />}
                     </div>
                    <div className="hoursoftext">
                        {<ContainerEvents key = {hour + 0.5} 
                                          id = {hour + 0.5} 
                                          dates = {this.props.day}
-                                         table = {this.state.activeTable}
+                                         clickEvent = {this.state.clickEvent}
                                          clickStart = {this.clickStart}
                                          keyEvent={this.state.keyEvent}
                                          clickEnd = {this.clickEnd}
+                                         activeClass = {this.activeClassRow(hour + 0.5)}
+                                         moveMouse = {this.updateEvent}
                                          />}
                    </div>
                </React.Fragment>
             );
         })
-        return(
-            array
-        )
+        return(array)
+       }   
     }
-}
 
 FormTex.propTypes = {
     day: PropTypes.object.isRequired,
