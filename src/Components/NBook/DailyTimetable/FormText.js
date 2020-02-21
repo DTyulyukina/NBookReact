@@ -41,14 +41,13 @@ class FormTex extends React.Component{
     }
 
     updateEvent(id){
-        let array = [... this.state.moveId, id];
+        let array = [...this.state.moveId, id];
         if(this.state.clickEvent){
             this.setState({
                 moveMouse: !this.state.moveMouse,
                 moveId: array
             });
         }
-        console.log(this.state.moveId)
     }
 
     addSources(day, start, end){
@@ -70,7 +69,7 @@ class FormTex extends React.Component{
         if(this.state.startEvent === hours){
             status = ' active';
         }
-        if(this.state.moveMouse && this.state.moveId > this.state.startEvent){
+        if(this.state.moveMouse && this.state.moveId){
             status = ' active';
         }
         return status;
