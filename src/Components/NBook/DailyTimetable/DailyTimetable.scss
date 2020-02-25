@@ -78,6 +78,8 @@
             cursor: pointer;
             touch-action: manipulation;
             margin: 1px;
+            display: inline-flex;
+            justify-content: flex-end;
             
             .cross{
               margin-right: 5px;
@@ -86,6 +88,12 @@
             .pencil{
               margin-right: 5px;
               font-size: 15px;
+            }
+            .text{
+              justify-content: flex-start;
+              display: flex;
+              width: 95%;
+              font-size: 14px;
             }
           }
         }

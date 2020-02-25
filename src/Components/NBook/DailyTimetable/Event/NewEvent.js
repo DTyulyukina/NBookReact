@@ -40,7 +40,9 @@ class NewEvent extends React.Component{
     render(){
         return (
             <div className="new-events" style={this.state.styles}>
-                <OptionNews className="titel"/>
+                <OptionNews className="text" value={this.props.text}/>
+                <OptionNews className="pencil" value="&#9998;"/>
+                <OptionNews className="cross" value="&times;"/>
             </div>
         );
     }

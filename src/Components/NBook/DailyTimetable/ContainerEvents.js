@@ -47,6 +47,7 @@ class ContainerEvents extends React.Component {
             if (line !== null && line.day === day){
                 if (Number(line.hour_start) === id){
                     daysEvents.push(<NewEvent key={index} 
+                                              text={line.text}
                                               color={Colors.two} 
                                               start={line.hour_start} 
                                               end={line.hour_end}/>);
