@@ -68,13 +68,14 @@ class FormTex extends React.Component{
 
     activeClassRow(hours){
         let status = '';
-        if(this.state.startEvent === hours){
-            status = ' active';
+        if(this.state.clickEvent && 
+            this.state.startEvent === hours){
+               status = ' active';
         } else 
-        if(this.state.moveMouse){
-            if(hours <= this.state.moveId && hours >= this.state.startEvent){
-                status = ' active';
-            }
+        if(this.state.moveMouse && 
+            hours <= this.state.moveId && 
+            hours >= this.state.startEvent){
+               status = ' active';
         }
         return status;
     }
