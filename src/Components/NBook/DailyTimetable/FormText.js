@@ -41,11 +41,11 @@ class FormTex extends React.Component{
     }
 
     updateEvent(id){
-        let array = [...this.state.moveId, id];
+        //let array = [...this.state.moveId, id];
         if(this.state.clickEvent){
             this.setState({
                 moveMouse: !this.state.moveMouse,
-                moveId: array
+                moveId: id
             });
         }
     }
@@ -69,8 +69,10 @@ class FormTex extends React.Component{
         if(this.state.startEvent === hours){
             status = ' active';
         }
-        if(this.state.moveMouse && this.state.moveId){
-            status = ' active';
+        if(this.state.moveMouse){
+            if(hours <= this.state.moveId){
+                status = ' active';
+            }
         }
         return status;
     }
