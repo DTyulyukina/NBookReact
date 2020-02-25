@@ -7,11 +7,11 @@ class FormTex extends React.Component{
         super(props);
 
         this.state = {
-            activeClass: ' ',
+            activeClass: 'hoursoftext',
             clickEvent: false,
             keyEvent: null,
             startEvent: null,
-            moveId: [], 
+            moveId: null, 
             moveMouse: false
         }
 
@@ -20,18 +20,20 @@ class FormTex extends React.Component{
         this.clickEnd    = this.clickEnd.bind(this);
     }
 
-    clickStart(id){ 
-        this.setState({
-            clickEvent: !this.state.clickEvent,
-            startEvent: id
-        });
+    clickStart(event, id){
+        if(event.target.className === 'container-records') {
+            this.setState({
+                clickEvent: !this.state.clickEvent,
+                startEvent: id
+            });
+        }
+        event.preventDefault();
     }
 
     clickEnd(id){
         if(this.state.clickEvent){
             let key = this.addSources(this.props.day.format("L"), this.state.startEvent, id);
             this.setState({
-                activeClass: ' ',
                 clickEvent: !this.state.clickEvent,
                 keyEvent: key,
                 startEvent: null,
@@ -68,9 +70,9 @@ class FormTex extends React.Component{
         let status = '';
         if(this.state.startEvent === hours){
             status = ' active';
-        }
+        } else 
         if(this.state.moveMouse){
-            if(hours <= this.state.moveId){
+            if(hours <= this.state.moveId && hours >= this.state.startEvent){
                 status = ' active';
             }
         }
@@ -81,7 +83,7 @@ class FormTex extends React.Component{
         let array = this.props.hourDay.map((hour) => {
             return (
                 <React.Fragment key={hour}>
-                   <div className="hoursoftext">
+                   <div className={ this.state.activeClass}>
                        {<ContainerEvents key = {hour} 
                                          id = {hour} 
                                          dates = {this.props.day}
@@ -93,7 +95,7 @@ class FormTex extends React.Component{
                                          moveMouse = {this.updateEvent}
                                          />}
                     </div>
-                   <div className="hoursoftext">
+                   <div className={ this.state.activeClass }>
                        {<ContainerEvents key = {hour + 0.5} 
                                          id = {hour + 0.5} 
                                          dates = {this.props.day}

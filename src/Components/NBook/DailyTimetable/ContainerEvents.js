@@ -59,11 +59,10 @@ class ContainerEvents extends React.Component {
 
     render() {
         return (
-            <div className={this.state.rowClass + this.props.activeClass}  
-                 onMouseDown = {this.props.clickStart.bind(this, this.props.id)}
-                 onMouseMove = {this.props.moveMouse.bind(this, this.props.id)}
-                 onMouseUp = {this.props.clickEnd.bind(this, this.props.id)}
-            >
+            <div className={this.state.rowClass + this.props.activeClass}    
+                 onMouseDown = {(e) => this.props.clickStart(e, this.props.id)}
+                 onMouseMove = {() => this.props.moveMouse(this.props.id)}
+                 onMouseUp = {() => this.props.clickEnd(this.props.id)} >
                 { this.state.componentEvent }
             </div>
         );

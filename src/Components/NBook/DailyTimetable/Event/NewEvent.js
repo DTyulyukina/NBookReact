@@ -17,13 +17,13 @@ class NewEvent extends React.Component{
             height = 20 + 'px';
         }else
         if(this.props.start < this.props.end){
-            height = ((this.props.end - this.props.start + 0.5)/0.5)*23;
+            height = ((this.props.end - this.props.start + 0.5)/0.5)*23.8;
         }
         let newStyle = {
             top: this.props.topEvent + 'px',
             left: this.props.leftEvent + 'px',
             backgroundColor: this.props.color,
-            width: '25%',
+            width: '100%',
             minHeight: height
         };
         this.setState({
