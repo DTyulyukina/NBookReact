@@ -32,12 +32,13 @@ class ContainerEvents extends React.Component {
     }
 
     componentDidUpdate(prevProps){
-        if (this.props.dates !== prevProps.dates || this.props.keyEvent !== prevProps.keyEvent){
+        if (this.props.dates !== prevProps.dates || 
+            this.props.keyEvent !== prevProps.keyEvent ||
+            this.props.eventRemove !== prevProps.eventRemove){
             this.setState({
                 componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)
             });
-        }
-
+        } 
     }
 
     loaderSources(localStorage, day, id){
@@ -47,10 +48,12 @@ class ContainerEvents extends React.Component {
             if (line !== null && line.day === day){
                 if (Number(line.hour_start) === id){
                     daysEvents.push(<NewEvent key={index} 
+                                              idEvent={index}
                                               text={line.text}
                                               color={Colors.two} 
                                               start={line.hour_start} 
-                                              end={line.hour_end}/>);
+                                              end={line.hour_end}
+                                              dell={this.props.dellEvent}/>);
                 }
             }
           }
@@ -74,12 +77,13 @@ ContainerEvents.propTypes = {
     id: PropTypes.number.isRequired,
     dates: PropTypes.object.isRequired,
     nameClass: PropTypes.string, 
-    clickEvent: PropTypes.bool,
-    clickStart: PropTypes.func.isRequired,
+    clickStart: PropTypes.func,
     keyEvent: PropTypes.number,
-    clickEnd: PropTypes.func.isRequired,
-    activeClass: PropTypes.string.isRequired,
-    moveMouse: PropTypes.func.isRequired
+    clickEnd: PropTypes.func,
+    activeClass: PropTypes.string,
+    moveMouse: PropTypes.func,
+    dellEvent: PropTypes.func,
+    eventRemove: PropTypes.bool
 }
 
 export default ContainerEvents;

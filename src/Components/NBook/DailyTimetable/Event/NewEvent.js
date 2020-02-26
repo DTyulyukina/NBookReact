@@ -42,17 +42,19 @@ class NewEvent extends React.Component{
             <div className="new-events" style={this.state.styles}>
                 <OptionNews className="text" value={this.props.text}/>
                 <OptionNews className="pencil" value="&#9998;"/>
-                <OptionNews className="cross" value="&times;"/>
+                <OptionNews className="cross" value="&times;" keyId={this.props.idEvent} removeEvent={this.props.dell} />
             </div>
         );
     }
 }
 
 NewEvent.propTypes = {
+    idEvent: PropTypes.number,
     text: PropTypes.string,
     start: PropTypes.number.isRequired,
     end: PropTypes.number.isRequired,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
+    dell: PropTypes.func
 }
 
 export default NewEvent;

@@ -12,12 +12,15 @@ class FormTex extends React.Component{
             keyEvent: null,
             startEvent: null,
             moveId: null, 
-            moveMouse: false
+            moveMouse: false,
+            dEvent: false
         }
 
         this.clickStart  = this.clickStart.bind(this);
         this.updateEvent = this.updateEvent.bind(this);
         this.clickEnd    = this.clickEnd.bind(this);
+        this.activeClassRow = this.activeClassRow.bind(this);
+        this.onDellEvent = this.onDellEvent.bind(this);
     }
 
     clickStart(event, id){
@@ -34,6 +37,7 @@ class FormTex extends React.Component{
         if(this.state.clickEvent){
             let key = this.addSources(this.props.day.format("L"), this.state.startEvent, id);
             this.setState({
+                dEvent: false,
                 clickEvent: !this.state.clickEvent,
                 keyEvent: key,
                 startEvent: null,
@@ -80,6 +84,23 @@ class FormTex extends React.Component{
         return status;
     }
 
+    onDellEvent(id){
+        let array = JSON.parse(localStorage.getItem('items'));
+        let newMassiv = [];
+        array.map((value, index) => {
+            if(index !== id){
+                newMassiv.push(value);
+            }
+        });
+        if(array !== newMassiv){
+            localStorage.setItem('items', JSON.stringify(newMassiv));
+            console.log(this.state.dEvent)
+            this.setState({
+                dEvent: true
+            });
+        }
+    }
+
     render(){ 
         let array = this.props.hourDay.map((hour) => {
             return (
@@ -88,24 +109,26 @@ class FormTex extends React.Component{
                        {<ContainerEvents key = {hour} 
                                          id = {hour} 
                                          dates = {this.props.day}
-                                         clickEvent = {this.state.clickEvent}
                                          clickStart = {this.clickStart}
                                          keyEvent={this.state.keyEvent}
                                          clickEnd = {this.clickEnd}
                                          activeClass = {this.activeClassRow(hour)}
                                          moveMouse = {this.updateEvent}
+                                         dellEvent = {this.onDellEvent}
+                                         eventRemove ={this.state.dEvent}
                                          />}
                     </div>
                    <div className={ this.state.activeClass }>
                        {<ContainerEvents key = {hour + 0.5} 
                                          id = {hour + 0.5} 
                                          dates = {this.props.day}
-                                         clickEvent = {this.state.clickEvent}
                                          clickStart = {this.clickStart}
                                          keyEvent={this.state.keyEvent}
                                          clickEnd = {this.clickEnd}
                                          activeClass = {this.activeClassRow(hour + 0.5)}
                                          moveMouse = {this.updateEvent}
+                                         dellEvent = {this.onDellEvent}
+                                         eventRemove ={this.state.dEvent}
                                          />}
                    </div>
                </React.Fragment>
