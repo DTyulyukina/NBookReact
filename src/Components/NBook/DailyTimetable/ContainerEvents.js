@@ -34,7 +34,8 @@ class ContainerEvents extends React.Component {
     componentDidUpdate(prevProps){
         if (this.props.dates !== prevProps.dates || 
             this.props.keyEvent !== prevProps.keyEvent ||
-            this.props.eventRemove !== prevProps.eventRemove){
+            this.props.eventRemove !== prevProps.eventRemove ||
+            this.props.uEvent !== prevProps.uEvent){
             this.setState({
                 componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)
             });
@@ -55,7 +56,8 @@ class ContainerEvents extends React.Component {
                                               end={line.hour_end}
                                               dell={this.props.dellEvent}
                                               update={this.props.eventUpdate}
-                                              upEvent={this.props.uEvent}/>);
+                                              upEvent={this.props.uEvent}
+                                              save={this.props.onSave}/>);
                 }
             }
           }
@@ -87,7 +89,8 @@ ContainerEvents.propTypes = {
     dellEvent: PropTypes.func,
     eventRemove: PropTypes.bool,
     eventUpdate: PropTypes.func,
-    uEvent: PropTypes.bool
+    uEvent: PropTypes.bool,
+    onSave: PropTypes.func
 }
 
 export default ContainerEvents;

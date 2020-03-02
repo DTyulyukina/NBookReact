@@ -84,8 +84,14 @@
 
             form{
               width: 95%;
+              display: inline-flex;
+              justify-content: flex-end;
+              label{
+                width: 100%;
+              }
               textarea{
                 width: 95%;
+                height: 100%;
               }
             }
             
@@ -105,7 +111,6 @@
               padding-left: 10px;
             }
             .save{
-              margin: 0px;
               padding-right: 7px;
             }
           }

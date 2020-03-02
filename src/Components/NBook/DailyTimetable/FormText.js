@@ -23,6 +23,7 @@ class FormTex extends React.Component{
         this.activeClassRow = this.activeClassRow.bind(this);
         this.onDellEvent    = this.onDellEvent.bind(this);
         this.onUpdateEvent  = this.onUpdateEvent.bind(this);
+        this.onSaveEvent    = this.onSaveEvent.bind(this);
     }
 
     clickStart(event, id){
@@ -95,7 +96,6 @@ class FormTex extends React.Component{
         });
         if(array !== newMassiv){
             localStorage.setItem('items', JSON.stringify(newMassiv));
-            console.log(this.state.dEvent)
             this.setState({
                 dEvent: !this.state.dEvent
             });
@@ -107,6 +107,29 @@ class FormTex extends React.Component{
             uEvent: !this.state.uEvent
         });
         console.log('update' + this.state.uEvent + ' ' + id)
+    }
+
+    onSaveEvent(id, text){
+        let array = JSON.parse(localStorage.getItem('items'));
+        let newMassiv = [];
+        array.map((value, index) => {
+            if(index === id){
+                let event = {
+                    "day": value.day,
+                    "text": text,
+                    "hour_start": value.hour_start,
+                    "hour_end": value.hour_end};
+                newMassiv.push(event);
+            } else {
+                newMassiv.push(value);
+            }
+        });
+        if(array !== newMassiv){
+            localStorage.setItem('items', JSON.stringify(newMassiv));
+        }
+        this.setState({
+            uEvent: !this.state.uEvent
+        });
     }
 
     render(){ 
@@ -126,6 +149,7 @@ class FormTex extends React.Component{
                                          eventRemove ={this.state.dEvent}
                                          eventUpdate = {this.onUpdateEvent}
                                          uEvent = {this.state.uEvent}
+                                         onSave = {this.onSaveEvent}
                                          />}
                     </div>
                    <div className={ this.state.activeClass }>
@@ -141,6 +165,7 @@ class FormTex extends React.Component{
                                          eventRemove ={this.state.dEvent}
                                          eventUpdate = {this.onUpdateEvent}
                                          uEvent = {this.state.uEvent}
+                                         onSave = {this.onSaveEvent}
                                          />}
                    </div>
                </React.Fragment>

@@ -8,7 +8,7 @@ class NewEvent extends React.Component{
 
     render(){
         if(this.props.act){
-            return <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId)}>{this.props.valueDef}</span>;
+            return <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId, this.props.valueText)}>{this.props.valueDef}</span>;
         }
         else {
             return (
@@ -22,7 +22,8 @@ NewEvent.propTypes = {
     className: PropTypes.string.isRequired,
     valueDef: PropTypes.string,
     keyId: PropTypes.number,
-    funcEvent: PropTypes.func
+    funcEvent: PropTypes.func,
+    valueText: PropTypes.string
 }
 
 export default NewEvent;

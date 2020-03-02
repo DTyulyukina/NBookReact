@@ -52,7 +52,7 @@ class NewEvent extends React.Component{
             } else {
             let text = 'Edit text event...';
             return (
-               <TextArea   keyId={this.props.idEvent} valueDef={text} />
+               <TextArea id={this.props.idEvent} value={text} saveEvent={this.props.save}/>
             );
         }
     }
@@ -74,7 +74,8 @@ NewEvent.propTypes = {
     color: PropTypes.string.isRequired,
     dell: PropTypes.func,
     update: PropTypes.func, 
-    upEvent: PropTypes.bool
+    upEvent: PropTypes.bool,
+    save: PropTypes.func
 }
 
 export default NewEvent;

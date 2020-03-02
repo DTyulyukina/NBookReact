@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import OptionNews from './OptionNews';
 
 class TextArea extends React.Component {
@@ -6,7 +7,7 @@ class TextArea extends React.Component {
     super(props);
 
     this.state = {
-      value: this.props.valueDef
+      valueForm: this.props.value
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -14,25 +15,36 @@ class TextArea extends React.Component {
   }
 
   onInput(event){
-    this.refs.text.focus();
     event.preventDefault();
+    this.refs.text.focus();
   }
 
   handleChange(event) {
-    this.setState({value: event.target.value});
+    this.setState({valueForm: event.target.value});
   }
 
   render() {
     return (
       <form>
         <label>
-          <textarea type="text" defaultValue={this.state.value} onChange={this.handleChange} 
+          <textarea type="text" placeholder={this.props.value} onChange={this.handleChange} 
                                 ref="text" onClick={this.onInput}/>
         </label>
-          <OptionNews className="save"  valueDef="&#128190;" act="true" keyId={this.props.idEvent}/>
+        <OptionNews className="save"  
+                    valueDef="&#128190;" 
+                    act="true" 
+                    keyId={this.props.id} 
+                    valueText={this.state.valueForm} 
+                    funcEvent={this.props.saveEvent}/>
       </form>
     );
   }
+}
+
+TextArea.propTypes = {
+  id: PropTypes.number,
+  value: PropTypes.string,
+  saveEvent: PropTypes.func
 }
   
 export default TextArea;
