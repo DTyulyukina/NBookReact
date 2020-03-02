@@ -61,7 +61,7 @@ class FormTex extends React.Component{
     addSources(day, start, end){
         let event = {
             "day": day,
-            "text": "Edit event",
+            "text": null,
             "hour_start": start,
             "hour_end": end};
         let array = [...JSON.parse(localStorage.getItem('items')), event];

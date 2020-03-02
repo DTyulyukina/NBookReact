@@ -84,14 +84,14 @@
 
             form{
               width: 95%;
-              input{
+              textarea{
                 width: 95%;
               }
             }
             
             .cross{
               margin-right: 5px;
-              font-size: 18px;
+              font-size: 23px;
             }
             .pencil{
               margin-right: 5px;
@@ -102,6 +102,11 @@
               display: flex;
               width: 95%;
               font-size: 14px;
+              padding-left: 10px;
+            }
+            .save{
+              margin: 0px;
+              padding-right: 7px;
             }
           }
         }

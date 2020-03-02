@@ -8,8 +8,7 @@ class NewEvent extends React.Component{
         super(props);
 
         this.state = {
-            styles: [],
-            value: ' ' 
+            styles: [] 
         }
 
         this.formText = this.formText.bind(this);
@@ -42,10 +41,22 @@ class NewEvent extends React.Component{
     }
 
     formText(){
-        if(this.props.uEvent){
-            return <OptionNews className="text" valueDef={this.props.text}/>;
-        } else {
-            return <TextArea keyId={this.props.idEvent} valueDef={this.props.text} />;
+        if(this.props.text !== null){
+            return (
+                <React.Fragment>
+                   <OptionNews className="text" valueDef={this.props.text}/>
+                   <OptionNews className="pencil" valueDef="&#9997;" keyId={this.props.idEvent} funcEvent={this.props.update}/>
+                   <OptionNews className="cross"  valueDef="&times;" keyId={this.props.idEvent} funcEvent={this.props.dell} />
+                </React.Fragment>
+            )
+            } else {
+            let text = 'Edit text event...';
+            return (
+               <React.Fragment>
+                   <TextArea   keyId={this.props.idEvent} valueDef={text} />
+                   <OptionNews className="save"  valueDef="&#128190;" keyId={this.props.idEvent}/>
+               </React.Fragment>
+            );
         }
     }
 
@@ -53,8 +64,6 @@ class NewEvent extends React.Component{
         return (
             <div className="new-events" style={this.state.styles}>
                 { this.formText() }
-                <OptionNews className="pencil" valueDef="&#9998;" keyId={this.props.idEvent} funcEvent={this.props.update}/>
-                <OptionNews className="cross"  valueDef="&times;" keyId={this.props.idEvent} funcEvent={this.props.dell} />
             </div>
         );
     }

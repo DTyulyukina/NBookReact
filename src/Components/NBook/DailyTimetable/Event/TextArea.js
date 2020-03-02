@@ -16,6 +16,7 @@ class TextArea extends React.Component {
 
   onInput(){
     this.textInput.current.focus();
+    console.log(this.textInput)
   }
 
   handleChange(event) {
@@ -26,7 +27,7 @@ class TextArea extends React.Component {
     return (
       <form>
         <label>
-          <input type="text" value={this.state.value} onChange={this.handleChange} 
+          <textarea type="text" value={this.state.value} onChange={this.handleChange} 
                              ref={this.textInput} onClick={this.onInput}/>
         </label>
       </form>
