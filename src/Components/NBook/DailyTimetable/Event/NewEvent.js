@@ -12,9 +12,7 @@ class NewEvent extends React.Component{
             value: ' ' 
         }
 
-        this.formText     = this.formText.bind(this);
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
+        this.formText = this.formText.bind(this);
     }
 
     componentDidMount(){
@@ -42,18 +40,6 @@ class NewEvent extends React.Component{
             styles: []
         });
     }
-
-    handleChange(event) {
-        console.log(event.target)
-        this.setState({
-            value: event.target.value
-        });
-    }
-
-    handleSubmit(event) {
-        alert('A name was submitted: ' + this.state.value);
-        event.preventDefault();
-      }
 
     formText(){
         if(this.props.uEvent){

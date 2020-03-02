@@ -81,6 +81,13 @@
             margin: 1px;
             display: inline-flex;
             justify-content: flex-end;
+
+            form{
+              width: 95%;
+              input{
+                width: 95%;
+              }
+            }
             
             .cross{
               margin-right: 5px;
