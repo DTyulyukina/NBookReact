@@ -53,7 +53,9 @@ class ContainerEvents extends React.Component {
                                               color={Colors.two} 
                                               start={line.hour_start} 
                                               end={line.hour_end}
-                                              dell={this.props.dellEvent}/>);
+                                              dell={this.props.dellEvent}
+                                              update={this.props.eventUpdate}
+                                              upEvent={this.props.uEvent}/>);
                 }
             }
           }
@@ -83,7 +85,9 @@ ContainerEvents.propTypes = {
     activeClass: PropTypes.string,
     moveMouse: PropTypes.func,
     dellEvent: PropTypes.func,
-    eventRemove: PropTypes.bool
+    eventRemove: PropTypes.bool,
+    eventUpdate: PropTypes.func,
+    uEvent: PropTypes.bool
 }
 
 export default ContainerEvents;

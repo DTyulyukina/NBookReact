@@ -35,7 +35,7 @@
       grid-auto-columns: 100px 800px; 
       grid-template-areas: "a b";
       border: solid 1px #e1e1e1;
-      height: 721px;
+      height: 796px;
       font-size: 16px;
       margin: auto; 
 
@@ -46,7 +46,8 @@
         .hoursnum{
           padding: 11px;
           border-bottom: solid 1px #e1e1e1;
-          height: 25px;
+          height: 30px;
+          line-height: 32px
         }
       }
       .texts{
@@ -58,7 +59,7 @@
         flex-direction: column;
         .hoursoftext{
           border: solid 1px #e1e1e1;
-          height: 1.378em;
+          height: 1.535em;
         }
         .container-records {
           position: relative;

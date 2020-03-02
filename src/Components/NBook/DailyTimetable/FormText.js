@@ -13,14 +13,16 @@ class FormTex extends React.Component{
             startEvent: null,
             moveId: null, 
             moveMouse: false,
-            dEvent: false
+            dEvent: false,
+            uEvent: false
         }
 
-        this.clickStart  = this.clickStart.bind(this);
-        this.updateEvent = this.updateEvent.bind(this);
-        this.clickEnd    = this.clickEnd.bind(this);
+        this.clickStart     = this.clickStart.bind(this);
+        this.updateEvent    = this.updateEvent.bind(this);
+        this.clickEnd       = this.clickEnd.bind(this);
         this.activeClassRow = this.activeClassRow.bind(this);
-        this.onDellEvent = this.onDellEvent.bind(this);
+        this.onDellEvent    = this.onDellEvent.bind(this);
+        this.onUpdateEvent  = this.onUpdateEvent.bind(this);
     }
 
     clickStart(event, id){
@@ -59,8 +61,7 @@ class FormTex extends React.Component{
     addSources(day, start, end){
         let event = {
             "day": day,
-            "titel": "",
-            "text": "",
+            "text": "Edit event",
             "hour_start": start,
             "hour_end": end};
         let array = [...JSON.parse(localStorage.getItem('items')), event];
@@ -96,9 +97,16 @@ class FormTex extends React.Component{
             localStorage.setItem('items', JSON.stringify(newMassiv));
             console.log(this.state.dEvent)
             this.setState({
-                dEvent: true
+                dEvent: !this.state.dEvent
             });
         }
+    }
+
+    onUpdateEvent(id){
+        this.setState({
+            uEvent: !this.state.uEvent
+        });
+        console.log('update' + this.state.uEvent + ' ' + id)
     }
 
     render(){ 
@@ -116,6 +124,8 @@ class FormTex extends React.Component{
                                          moveMouse = {this.updateEvent}
                                          dellEvent = {this.onDellEvent}
                                          eventRemove ={this.state.dEvent}
+                                         eventUpdate = {this.onUpdateEvent}
+                                         uEvent = {this.state.uEvent}
                                          />}
                     </div>
                    <div className={ this.state.activeClass }>
@@ -129,6 +139,8 @@ class FormTex extends React.Component{
                                          moveMouse = {this.updateEvent}
                                          dellEvent = {this.onDellEvent}
                                          eventRemove ={this.state.dEvent}
+                                         eventUpdate = {this.onUpdateEvent}
+                                         uEvent = {this.state.uEvent}
                                          />}
                    </div>
                </React.Fragment>

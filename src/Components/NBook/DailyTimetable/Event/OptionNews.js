@@ -1,17 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function NewEvent(props){
-    return (
-    <span className={props.className} onClick={() => props.removeEvent(props.keyId)}>{props.value}</span>
-    );
+class NewEvent extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return (
+            <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId)}>{this.props.valueDef}</span>
+         );
+    }
 }
 
 NewEvent.propTypes = {
     className: PropTypes.string.isRequired,
-    value: PropTypes.string,
+    valueDef: PropTypes.string,
     keyId: PropTypes.number,
-    removeEvent: PropTypes.func
+    funcEvent: PropTypes.func
 }
 
 export default NewEvent;
