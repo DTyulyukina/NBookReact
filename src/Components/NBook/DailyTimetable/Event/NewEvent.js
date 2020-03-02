@@ -44,18 +44,15 @@ class NewEvent extends React.Component{
         if(this.props.text !== null){
             return (
                 <React.Fragment>
-                   <OptionNews className="text" valueDef={this.props.text}/>
-                   <OptionNews className="pencil" valueDef="&#9997;" keyId={this.props.idEvent} funcEvent={this.props.update}/>
-                   <OptionNews className="cross"  valueDef="&times;" keyId={this.props.idEvent} funcEvent={this.props.dell} />
+                   <OptionNews className="text"   valueDef={this.props.text}/>
+                   <OptionNews className="pencil" valueDef="&#9997;" act="true" keyId={this.props.idEvent} funcEvent={this.props.update}/>
+                   <OptionNews className="cross"  valueDef="&times;" act="true" keyId={this.props.idEvent} funcEvent={this.props.dell} />
                 </React.Fragment>
             )
             } else {
             let text = 'Edit text event...';
             return (
-               <React.Fragment>
-                   <TextArea   keyId={this.props.idEvent} valueDef={text} />
-                   <OptionNews className="save"  valueDef="&#128190;" keyId={this.props.idEvent}/>
-               </React.Fragment>
+               <TextArea   keyId={this.props.idEvent} valueDef={text} />
             );
         }
     }

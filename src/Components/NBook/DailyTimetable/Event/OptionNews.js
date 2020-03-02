@@ -7,9 +7,14 @@ class NewEvent extends React.Component{
     }
 
     render(){
-        return (
-            <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId)}>{this.props.valueDef}</span>
-         );
+        if(this.props.act){
+            return <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId)}>{this.props.valueDef}</span>;
+        }
+        else {
+            return (
+                <span className={this.props.className}>{this.props.valueDef}</span>
+             );
+        }
     }
 }
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import OptionNews from './OptionNews';
 
 class TextArea extends React.Component {
   constructor(props) {
@@ -8,15 +9,13 @@ class TextArea extends React.Component {
       value: this.props.valueDef
     };
 
-    this.textInput = React.createRef();
-
     this.handleChange = this.handleChange.bind(this);
     this.onInput = this.onInput.bind(this);
   }
 
-  onInput(){
-    this.textInput.current.focus();
-    console.log(this.textInput)
+  onInput(event){
+    this.refs.text.focus();
+    event.preventDefault();
   }
 
   handleChange(event) {
@@ -27,9 +26,10 @@ class TextArea extends React.Component {
     return (
       <form>
         <label>
-          <textarea type="text" value={this.state.value} onChange={this.handleChange} 
-                             ref={this.textInput} onClick={this.onInput}/>
+          <textarea type="text" defaultValue={this.state.value} onChange={this.handleChange} 
+                                ref="text" onClick={this.onInput}/>
         </label>
+          <OptionNews className="save"  valueDef="&#128190;" act="true" keyId={this.props.idEvent}/>
       </form>
     );
   }
