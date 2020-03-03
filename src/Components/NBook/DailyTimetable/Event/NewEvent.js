@@ -42,19 +42,25 @@ class NewEvent extends React.Component{
 
     formText(){
         if(this.props.text !== null){
-            return (
-                <React.Fragment>
-                   <OptionNews className="text"   valueDef={this.props.text}/>
-                   <OptionNews className="pencil" valueDef="&#9997;" act="true" keyId={this.props.idEvent} funcEvent={this.props.update}/>
-                   <OptionNews className="cross"  valueDef="&times;" act="true" keyId={this.props.idEvent} funcEvent={this.props.dell} />
-                </React.Fragment>
-            )
+            if(this.props.idupdate === this.props.idEvent){
+                return (
+                    <TextArea id={this.props.idEvent} value={this.props.text} saveEvent={this.props.save}/>
+                 );
             } else {
+                return (
+                    <React.Fragment>
+                       <OptionNews className="text"   valueDef={this.props.text}/>
+                       <OptionNews className="pencil" valueDef="&#9997;" act="true" keyId={this.props.idEvent} funcEvent={this.props.update}/>
+                       <OptionNews className="cross"  valueDef="&times;" act="true" keyId={this.props.idEvent} funcEvent={this.props.dell} />
+                    </React.Fragment>
+                )
+            }
+        } else if (this.props.text === null){
             let text = 'Edit text event...';
             return (
                <TextArea id={this.props.idEvent} value={text} saveEvent={this.props.save}/>
             );
-        }
+        } 
     }
 
     render(){
@@ -75,7 +81,8 @@ NewEvent.propTypes = {
     dell: PropTypes.func,
     update: PropTypes.func, 
     upEvent: PropTypes.bool,
-    save: PropTypes.func
+    save: PropTypes.func,
+    idupdate: PropTypes.number
 }
 
 export default NewEvent;

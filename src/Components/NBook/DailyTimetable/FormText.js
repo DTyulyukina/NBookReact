@@ -13,8 +13,10 @@ class FormTex extends React.Component{
             startEvent: null,
             moveId: null, 
             moveMouse: false,
+            sEvent: false,
             dEvent: false,
-            uEvent: false
+            uEvent: false,
+            idUpdate: null
         }
 
         this.clickStart     = this.clickStart.bind(this);
@@ -104,9 +106,11 @@ class FormTex extends React.Component{
 
     onUpdateEvent(id){
         this.setState({
-            uEvent: !this.state.uEvent
+            uEvent: !this.state.uEvent,
+            idUpdate: id
         });
-        console.log('update' + this.state.uEvent + ' ' + id)
+
+        console.log(id)
     }
 
     onSaveEvent(id, text){
@@ -128,7 +132,9 @@ class FormTex extends React.Component{
             localStorage.setItem('items', JSON.stringify(newMassiv));
         }
         this.setState({
-            uEvent: !this.state.uEvent
+            sEvent: !this.state.sEvent,
+            uEvent: !this.state.uEvent ? this.state.uEvent : !this.state.uEvent,
+            idUpdate: null
         });
     }
 
@@ -150,6 +156,8 @@ class FormTex extends React.Component{
                                          eventUpdate = {this.onUpdateEvent}
                                          uEvent = {this.state.uEvent}
                                          onSave = {this.onSaveEvent}
+                                         sEvent = {this.state.sEvent}
+                                         idUpdate = {this.state.idUpdate}
                                          />}
                     </div>
                    <div className={ this.state.activeClass }>
@@ -166,6 +174,8 @@ class FormTex extends React.Component{
                                          eventUpdate = {this.onUpdateEvent}
                                          uEvent = {this.state.uEvent}
                                          onSave = {this.onSaveEvent}
+                                         sEvent = {this.state.sEvent}
+                                         idUpdate = {this.state.idUpdate}
                                          />}
                    </div>
                </React.Fragment>
