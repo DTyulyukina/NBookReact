@@ -46,7 +46,7 @@ class Calendar extends React.Component {
   }
 
   updateSelect(event, param, str){
-    console.log(str)
+    //console.log(str)
     let dateObject = Object.assign({}, this.state.dateObject);
     dateObject = moment(dateObject).set(str, param);
     if( str === 'month' ){

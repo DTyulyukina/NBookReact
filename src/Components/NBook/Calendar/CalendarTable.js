@@ -3,13 +3,6 @@ import moment from "moment";
 import PropTypes from 'prop-types';
 
 class CalendarTable extends React.Component {
-  static propTypes = {
-    dateObject: PropTypes.object.isRequired,
-    ShowYearsSelect: PropTypes.bool.isRequired,
-    ShowMonthSelect: PropTypes.bool.isRequired, 
-    onChangeSelect: PropTypes.func.isRequired
-  }
-
   constructor(props) { 
     super(props);
 
@@ -154,5 +147,12 @@ class CalendarTable extends React.Component {
     );
   }
 } 
+
+CalendarTable.propTypes = {
+  dateObject: PropTypes.object.isRequired,
+  ShowYearsSelect: PropTypes.bool.isRequired,
+  ShowMonthSelect: PropTypes.bool.isRequired, 
+  onChangeSelect: PropTypes.func.isRequired
+}
 
 export default CalendarTable;
