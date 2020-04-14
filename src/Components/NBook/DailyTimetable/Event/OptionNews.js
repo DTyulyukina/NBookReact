@@ -1,20 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class NewEvent extends React.Component{
-    constructor(props){
-        super(props);
+function NewEvent(props){
+    if(props.act){
+         return <span className={props.className} onClick={() => props.funcEvent(props.keyId, props.valueText)}>{props.valueDef}</span>;
     }
-
-    render(){
-        if(this.props.act){
-            return <span className={this.props.className} onClick={() => this.props.funcEvent(this.props.keyId, this.props.valueText)}>{this.props.valueDef}</span>;
-        }
-        else {
-            return (
-                <span className={this.props.className}>{this.props.valueDef}</span>
-             );
-        }
+    else {
+        return (
+            <span className={props.className}>{props.valueDef}</span>
+        );
     }
 }
 

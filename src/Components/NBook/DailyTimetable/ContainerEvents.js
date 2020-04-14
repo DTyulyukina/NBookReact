@@ -18,7 +18,7 @@ class ContainerEvents extends React.Component {
         }
     }
 
-    componentWillMount(){
+    componentDidMount(){
         localStorage.setItem('items', JSON.stringify(dataNews));
         this.setState({
             componentEvent: this.loaderSources(localStorage, this.props.dates.format("L"), this.props.id)

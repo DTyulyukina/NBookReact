@@ -79,7 +79,7 @@ class CalendarTable extends React.Component {
     }
     let daysMonth = [];
     for (let d = 1; d <= this.dayInMonth(); d++) {
-      let currentDay = d == this.currentDay() ? "today" : "";   
+      let currentDay = d === this.currentDay() ? "today" : "";   
       daysMonth.push(  
         <td key={'calendar-day' + d} className={`calendar-day ${currentDay}`}>   
           <span>{d}</span>
