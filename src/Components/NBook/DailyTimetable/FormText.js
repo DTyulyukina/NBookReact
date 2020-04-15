@@ -29,7 +29,6 @@ class FormTex extends React.Component{
     }
 
     clickStart(event, id){
-        console.log(event.target)
         if(event.target.className === 'container-records') {
             this.setState({
                 clickEvent: !this.state.clickEvent,
@@ -53,7 +52,6 @@ class FormTex extends React.Component{
     }
 
     updateEvent(id){
-        //let array = [...this.state.moveId, id];
         if(this.state.clickEvent){
             this.setState({
                 moveMouse: !this.state.moveMouse,
