@@ -20,7 +20,7 @@ class NewEvent extends React.Component{
             height = 22 + 'px';
         }else
         if(this.props.start < this.props.end){
-            height = ((this.props.end - this.props.start + 0.5)/0.5)*23.8;
+            height = ((this.props.end - this.props.start + 0.5)/0.5)*26.1;
         }
         let newStyle = {
             top: this.props.topEvent + 'px',

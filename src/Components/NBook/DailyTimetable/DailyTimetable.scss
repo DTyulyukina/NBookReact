@@ -83,15 +83,19 @@
             justify-content: flex-end;
 
             form{
-              width: 95%;
+              width: 99%;
               display: inline-flex;
               justify-content: flex-end;
               label{
                 width: 100%;
               }
               textarea{
-                width: 95%;
+                width: 99%;
                 height: 100%;
+                resize: none;
+                overflow: auto;
+                background-color: rgb(255, 0, 0);
+                border: 1px solid rgb(255, 0, 0);
               }
             }
             
