@@ -1,3 +1,14 @@
 .list_notes{
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 10px;
+
+    .note{
+        width: 200px;
+        height: 100px;
+        border: 1px solid #fff;
+        margin: 0 auto;
+    }
 }
