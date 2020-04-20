@@ -89,7 +89,8 @@ class FormTex extends React.Component{
 
     onDellEvent(id){
         let array = JSON.parse(localStorage.getItem('items'));
-        let newMassiv = array.splice(1, id);
+        let newMassiv = [...array.slice(0, id),
+            ...array.slice(id + 1, array.length)];
         if(array !== newMassiv){
             localStorage.setItem('items', JSON.stringify(newMassiv));
             this.setState({
