@@ -1,19 +1,15 @@
 import React from 'react';
-import './Notes.scss'
+import PropTypes from 'prop-types';
+
+import ListNotes from './ListNotes';
+import data from './dates';
+import './Notes.scss';
 
 class Notes extends React.Component{
-    constructor(){
-        super();
-
-        this.state = {
-            arrayNotes: null
-        }
-    }
-
     render() {
         return (
-            <div className='notes'>
-                Notes
+            <div className='list_notes'>
+                <ListNotes notes={data} />
             </div>
         )
     }
