@@ -3,11 +3,16 @@ import PropTypes from 'prop-types';
 
 function NewEvent(props){
     if(props.act){
-         return <span className={props.className} onClick={() => props.funcEvent(props.keyId, props.valueText)}>{props.valueDef}</span>;
+         return <span className={props.className} 
+                      onClick={() => props.funcEvent(props.keyId, props.valueText)}>
+                          {props.valueDef}
+                </span>;
     }
     else {
         return (
-            <span className={props.className}>{props.valueDef}</span>
+            <span className={props.className}>
+                {props.valueDef}
+            </span>
         );
     }
 }

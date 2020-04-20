@@ -27,6 +27,7 @@
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^9.0.0",
     "babel-jest": "^23.4.2",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "browserslist": "^4.11.1",
     "case-sensitive-paths-webpack-plugin": "2.1.1",
     "chalk": "1.1.3",
