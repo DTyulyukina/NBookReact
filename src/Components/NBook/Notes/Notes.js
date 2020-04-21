@@ -3,7 +3,11 @@ import React from 'react';
 
 function Notes(props){
    return (
-        <div className="note">note {props.id}</div>
+        <div className="note">
+            <div className="text">
+                note {props.id}
+            </div>
+        </div>
     );
 }
 

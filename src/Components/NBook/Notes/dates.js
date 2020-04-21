@@ -6,6 +6,10 @@ const datas = [
     {
         id: 2,
         text: "New event 2"
+    },
+    {
+        id: 3,
+        text: "New event 3"
     }
 ];
 
