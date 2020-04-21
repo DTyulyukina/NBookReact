@@ -13,9 +13,9 @@ class ListNotes extends React.Component{
     }
 
     render() {
-        let array = this.state.arrayNotes.map(note => {
+        let array = this.state.arrayNotes.map((note,index) => {
             return (
-                <React.Fragment key={note.id}>
+                <React.Fragment key={index}>
                     <Notes key={note.id} id={note.id} text={note.text}/>
                 </React.Fragment>
             )
