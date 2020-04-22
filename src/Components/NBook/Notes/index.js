@@ -9,7 +9,6 @@ class Notes extends React.Component{
         return (
             <div className='list_notes'>
                 <ListNotes notes={data} />
-                <Form />
             </div>
         )
     }
