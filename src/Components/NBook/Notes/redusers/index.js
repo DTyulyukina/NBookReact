@@ -1,16 +1,14 @@
-import {ADD_NOTES, DELETE_NOTES, UPDATE_NOTES} from './action';
+import { DELETE_NOTES } from './../action';
 
 export default function reducer(state = [], action){
     switch(action.type){
-        case ADD_NOTES: 
-            return [];
-
         case DELETE_NOTES:
-            return [];
+            const index = state.findIndex(data => data.id === action.id)
+            return [ 
+                ...state.slice( 0, index), 
+                ...state.slice( index + 1)
+            ];
 
-        case UPDATE_NOTES:
-            return [];
-        
         default:
             return state;
     }

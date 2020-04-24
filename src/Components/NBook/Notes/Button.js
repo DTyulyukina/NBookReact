@@ -6,16 +6,17 @@ import Edit   from '@material-ui/icons/Edit';
 import Save   from '@material-ui/icons/Save';
 
 function Button(props){
-   return (
-       <div name={props.index} className="icon">
-           <Delete>{props.type}</Delete>
-       </div>
-    );
+    return (
+        <button name={props.index} className={props.nameCss}>
+            <Delete>{props.type}</Delete>
+        </button>
+    ); 
 }
 
 Button.propTypes = {
     index: PropTypes.number,
-    type: PropTypes.string
+    type: PropTypes.string,
+    nameCss: PropTypes.string
 }
 
 export default Button;

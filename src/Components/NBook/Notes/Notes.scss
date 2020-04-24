@@ -1,9 +1,12 @@
 .list_notes{
     margin: auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
     padding: 10px;
+    border: 1px solid #fff;
+    height: 500px;
+    width: 800px;
+    display: grid;
+    grid-template-columns: 265px 265px 265px;
+    grid-template-rows: 150px;
 
     .note{
         width: 250px;
@@ -11,13 +14,19 @@
         border: 1px solid #fff;
         margin: 0 auto;
         border-radius: 0 10px;
+        margin: 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
 
         .text{
             margin: 5px;
+            width: 200px;
         }
     }
 
-    .icon{
-        width: 25px;
+    .icon-notes{
+        background-color: inherit;
+        border-color: transparent;
     }
 }

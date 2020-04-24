@@ -9,7 +9,9 @@ function Notes(props){
             <div className="text">
                 note {props.id}
             </div>
-            <Button index={props.id} type="delete"/>
+            <div className="icon">
+                <Button index={props.id} type="delete" nameCss="icon-notes"/>
+            </div>
         </div>
     );
 }
