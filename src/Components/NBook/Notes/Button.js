@@ -7,7 +7,9 @@ import Save   from '@material-ui/icons/Save';
 
 function Button(props){
     return (
-        <button name={props.index} className={props.nameCss}>
+        <button name={props.index} 
+                className={props.nameCss} 
+                onClick={() => props.action(props.index)}>
             <Delete>{props.type}</Delete>
         </button>
     ); 
@@ -16,7 +18,8 @@ function Button(props){
 Button.propTypes = {
     index: PropTypes.number,
     type: PropTypes.string,
-    nameCss: PropTypes.string
+    nameCss: PropTypes.string,
+    action: PropTypes.func
 }
 
 export default Button;
