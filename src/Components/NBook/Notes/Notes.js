@@ -1,19 +1,26 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Button from './Button';
 
-function Notes(props){
-   return (
+class Notes extends React.Component{
+    constructor(props){
+        super(props);
+    }
+
+    render(){
+        return (
             <div className="note">
                 <div className="text">
-                    note {props.id}
+                    note {this.props.id}
                 </div>
-                <div className="icon">
-                    <Button index={props.id} type="delete" nameCss="icon-notes" action={props.onDelete}/>
+                <div className="buttons">
+                    <Button index={this.props.id} type="update" nameCss="icon-notes" action={this.props.onUpdate}/>
+                    <Button index={this.props.id} type="delete" nameCss="icon-notes" action={this.props.onDelete}/>
                 </div>
             </div>
-    );
+        )
+    }
 }
 
 Notes.propTypes = {

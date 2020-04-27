@@ -1,18 +1,10 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 
 import Notes from './Notes';
 
 function ListNotes(props){
-        let num = Math.trunc(props.notes.length/3) + 1;
-        console.log(num)
-        const style = {
-                gridTemplateColumns: 'repeat( 3, 265px)',
-                gridTemplateRows: 'repeat( ' + num + ', 150px)'
-        }
-
-        console.log(style)
         return (
-                <div className='list_notes' style={style}>
+                <div className='list_notes'>
                         {props.notes.map((note, index) =>
                                 <Notes 
                                        key={index} 
