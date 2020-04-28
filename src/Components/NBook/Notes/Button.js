@@ -6,13 +6,13 @@ import Edit   from '@material-ui/icons/Edit';
 import Save   from '@material-ui/icons/Save';
 
 function Button(props){
-    switch(props.type){
+    switch(props.icon){
         case "delete":
             return (
                 <button name={props.index} 
                         className={props.nameCss} 
                         onClick={() => props.action(props.index)}>
-                    <Delete>{props.type}</Delete>
+                    <Delete>{props.icon}</Delete>
                 </button>
             );
         case "update":
@@ -20,25 +20,25 @@ function Button(props){
                 <button name={props.index} 
                         className={props.nameCss} 
                         onClick={() => props.action(props.index)}>
-                    <Edit>{props.type}</Edit>
+                    <Edit>{props.icon}</Edit>
                 </button>
             );
         case "save":
-                return (
-                    <button name={props.index} 
-                            className={props.nameCss} 
-                            onClick={() => props.action(props.index)}>
-                        <Save>{props.type}</Save>
-                    </button>
-                );
+            return (
+                <button name={props.index} 
+                        className={props.nameCss}>
+                    <Save>{props.icon}</Save>
+                </button>
+            );  
     } 
 }
 
 Button.propTypes = {
     index: PropTypes.number,
-    type: PropTypes.string,
+    icon: PropTypes.string,
     nameCss: PropTypes.string,
-    action: PropTypes.func
+    action: PropTypes.func,
+    text: PropTypes.string
 }
 
 export default Button;
