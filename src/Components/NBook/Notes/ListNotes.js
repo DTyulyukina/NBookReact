@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Notes from './Notes';
 
@@ -17,6 +18,13 @@ function ListNotes(props){
                         }
                 </div>
         );
+}
+
+ListNotes.propTypes = {
+        notes: PropTypes.array,
+        onDelete: PropTypes.func,
+        onUpdate: PropTypes.func,
+        onAdd: PropTypes.func
 }
 
 export default ListNotes;

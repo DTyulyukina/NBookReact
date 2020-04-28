@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Button from './Button';
-import { isThursday } from 'date-fns';
 
 class Notes extends React.Component{
     constructor(props){
@@ -58,5 +57,7 @@ class Notes extends React.Component{
         )
     }
 }
+
+Notes.pr
 
 export default Notes;
