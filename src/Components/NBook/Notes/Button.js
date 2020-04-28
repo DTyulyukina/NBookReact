@@ -7,7 +7,7 @@ import Save   from '@material-ui/icons/Save';
 
 function Button(props){
     switch(props.type){
-        case 'delete':
+        case "delete":
             return (
                 <button name={props.index} 
                         className={props.nameCss} 
@@ -15,7 +15,7 @@ function Button(props){
                     <Delete>{props.type}</Delete>
                 </button>
             );
-        case 'update':
+        case "update":
             return (
                 <button name={props.index} 
                         className={props.nameCss} 
@@ -23,7 +23,7 @@ function Button(props){
                     <Edit>{props.type}</Edit>
                 </button>
             );
-        case 'save':
+        case "save":
                 return (
                     <button name={props.index} 
                             className={props.nameCss} 
