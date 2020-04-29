@@ -13,7 +13,7 @@ const store = createStore(reduser, data);
 class Notes extends React.Component{
     render() {
         return (
-            <div className="note">
+            <div className="area-note">
                 <Form store={store} />
                 <ListNotesContainer store={store} />
             </div>

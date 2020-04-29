@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 import Delete from '@material-ui/icons/Delete';
 import Edit   from '@material-ui/icons/Edit';
-import Save   from '@material-ui/icons/Save';
 
 function Button(props){
     switch(props.icon){
@@ -26,8 +25,7 @@ function Button(props){
         case "save":
             return (
                 <button name={props.index} 
-                        className={props.nameCss}>
-                    <Save>{props.icon}</Save>
+                        className={props.nameCss}>Save
                 </button>
             );  
     } 

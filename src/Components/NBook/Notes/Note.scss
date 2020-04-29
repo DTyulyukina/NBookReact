@@ -1,14 +1,44 @@
-.note{
+.area-note{
     display: grid;
+    height: 700px;
+    grid-template-columns: 40% 60%;
+    padding: 10px;
+
+    .editing{
+        padding: 20px 10px;
+        margin: 0 auto;
+
+        .form-list{
+            display: flex;
+            justify-content: flex-start;
+            flex-direction: column;
+
+            textarea{
+                width: 370px;
+                height: 400px;
+                margin: 0px;
+                resize: none;
+                border-radius: 10px;
+                border:0;
+                padding: 10px;
+                margin: 10px;
+
+                *:focus {
+                    outline: 0;
+                    border:0;
+                }
+            }
+        }
+    }
     
     .list_notes{
-        margin: auto;
-        padding: 10px;
-        width: 70%;
+        margin: 0 auto;
+        padding: 30px 10px;
+        width: 85%;
         display: grid;
     
         .note{
-            width: 100%;
+            width: 98%;
             height: 38px;
             margin: 0 auto;
             margin: 5px;
@@ -17,10 +47,11 @@
             justify-content: flex-start;
             border-radius: 10px 10px;
             border: 1px solid #fff;
+            text-align: left;
     
             .text{
                 margin: 5px;
-                width: 88%;
+                width: 80%;
             }
     
             .buttons{
@@ -37,10 +68,12 @@
                 }
             }
         }
-    
-        .icon-notes{
-            background-color: inherit;
-            border-color: transparent;
-        }
+    }
+    .icon-notes{
+        background-color: inherit;
+        border-color: transparent;
+    }
+    .icon-save{
+        border-radius: 5px;
     }
 }
