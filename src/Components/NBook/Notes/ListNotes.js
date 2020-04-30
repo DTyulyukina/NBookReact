@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import Record from './Record';
 
@@ -15,17 +14,11 @@ function ListNotes(props){
                                        onDelete={props.onDelete}
                                        onUpdate={props.onUpdate}
                                        onAdd={props.onAdd}
+                                       editForm={props.editForm}
                                 />)  
                         }
                 </div>
         );
-}
-
-ListNotes.propTypes = {
-        notes: PropTypes.array,
-        onDelete: PropTypes.func,
-        onUpdate: PropTypes.func,
-        onAdd: PropTypes.func
 }
 
 export default ListNotes;

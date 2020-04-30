@@ -22,12 +22,19 @@ function Button(props){
                     <Edit>{props.icon}</Edit>
                 </button>
             );
-        case "save":
+        case "add":
             return (
-                <button name={props.index} 
+                <button name={props.index} type={props.type}
                         className={props.nameCss}>Save
                 </button>
-            );  
+            );
+        case "update":
+            return (
+                <button name={props.index} 
+                        className={props.nameCss}
+                        onClick={() => props.action(props.index)}>Update
+                </button>
+            );      
     } 
 }
 

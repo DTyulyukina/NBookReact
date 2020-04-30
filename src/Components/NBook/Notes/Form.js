@@ -6,35 +6,28 @@ class Form extends React.Component{
     constructor(props){
         super(props);
 
-        this.store = this.props.store;
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    unsubscribe(){
-        this.store.subscribe(() => this.forceUpdate());
+    handleSubmit(event){
+        event.preventDefault();
+        this.props.onAdd(event.target.lastChild.value);
+        event.target.lastChild.value = '';
     }
 
-    componentDidMount(){
-        this.unsubscribe();
-    }
-
-    componentWillMount(){
-        this.unsubscribe();
-    }
-
-    render() {
-        console.log(this.props.store.getState());
+    render(){
         return (
             <div className="form-notes">
                 <div className="editing">
-                    <form className="form-list">
+                    <form className="form-list" onSubmit={(event) => this.handleSubmit(event)}>
                         <div className="buttom-editor">
-                            <Button index={this.props.id} icon="save" nameCss="icon-save"/>
+                            <Button icon="add" type="submit" nameCss="icon-save"/>
                         </div>
                         <textarea name="text" placeholder="New note" required form="text" ></textarea>
                     </form>
                 </div>
             </div>
-        );
+        )
     }
 }
 
