@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ListNotes from '../ListNotes';
-import {deleteNotes, editForm} from '../action';
+import {deleteNotes, editForm, showNote} from '../action';
 
 function mapStateToProps(state){
     return {
@@ -13,7 +13,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {
         onDelete: id => dispatch(deleteNotes(id)),
-        editForm: id => dispatch(editForm(id))
+        editForm: id => dispatch(editForm(id)),
+        showNote: id => dispatch(showNote(id))
     };
 }
 

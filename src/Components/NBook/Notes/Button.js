@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import Delete from '@material-ui/icons/Delete';
-import Edit   from '@material-ui/icons/Edit';
+import Delete            from '@material-ui/icons/Delete';
+import Edit              from '@material-ui/icons/Edit';
+import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
 
 function Button(props){
     switch(props.icon){
@@ -18,7 +19,7 @@ function Button(props){
             return (
                 <button name={props.index} 
                         className={props.nameCss} 
-                        onClick={() => props.action(props.index)}>
+                        onClick={(event) => props.action(event, props.index)}>
                     <Edit>{props.icon}</Edit>
                 </button>
             );
@@ -28,13 +29,20 @@ function Button(props){
                         className={props.nameCss}>Save
                 </button>
             );
-        case "update":
+        case "update_form":
+            return (
+                <button name={props.index} 
+                        className={props.nameCss}>Update
+                </button>
+            ); 
+        case "arrow":
             return (
                 <button name={props.index} 
                         className={props.nameCss}
-                        onClick={() => props.action(props.index)}>Update
+                        onClick={() => props.action(props.index)}>
+                            <ArrowDropDownIcon>Arrow</ArrowDropDownIcon>
                 </button>
-            );      
+            );     
     } 
 }
 

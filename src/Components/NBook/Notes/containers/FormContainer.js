@@ -4,13 +4,19 @@ import { connect } from 'react-redux';
 import Form from '../Form';
 import {addNotes, updateNotes} from '../action';
 
-function mapDispatchToProps(dispatch){
+function mapStateToProps(state){
     return {
-        onAdd: text => dispatch(addNotes(text)),
-        onUpdate: (id, text) => dispatch(updateNotes(id, text))
+        notes: state
     };
 }
 
-const FormContainer = connect(null, mapDispatchToProps)(Form);
+function mapDispatchToProps(dispatch){
+    return {
+        onAdd: (heading, text) => dispatch(addNotes(heading, text)),
+        onUpdate: (id, heading, text) => dispatch(updateNotes(id, heading, text))
+    };
+}
+
+const FormContainer = connect(mapStateToProps, mapDispatchToProps)(Form);
 
 export default FormContainer;

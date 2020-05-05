@@ -1,12 +1,14 @@
-import { ADD_NOTES, DELETE_NOTES, UPDATE_NOTES, FORM_EDIT } from './../action';
+import { ADD_NOTES, DELETE_NOTES, UPDATE_NOTES, FORM_EDIT, SHOW_NOTE } from './../action';
 
 function reduserNotes(state = {}, action){
     switch(action.type) {
         case ADD_NOTES:
             return {
                 id: action.id,
+                heading: action.heading,
                 text: action.text,
-                editing: false
+                editing: false,
+                show_text: false
             };
             
         case UPDATE_NOTES :
@@ -15,17 +17,27 @@ function reduserNotes(state = {}, action){
             }
 
             return Object.assign({}, state, {
+                heading: action.heading,
                 text: action.text,
-                editing: !action.editing
+                editing: action.editing
             })
         
         case FORM_EDIT :
             if (state.id !== action.id){
                 return state;
             }
-    
+
             return Object.assign({}, state, {
-                editing: !action.editing
+                editing: !state.editing
+            })
+
+       case SHOW_NOTE :
+            if (state.id !== action.id){
+                return state;
+            }
+
+            return Object.assign({}, state, {
+                show_text: !state.show_text
             })
     }
 }
@@ -50,6 +62,9 @@ export default function reducer(state = [], action){
                 data.editing === true ? 
                 data.editing = !data.editing : 
                 data.editing);
+            return state.map(data => reduserNotes(data, action));
+        
+        case SHOW_NOTE:
             return state.map(data => reduserNotes(data, action));
 
         default:

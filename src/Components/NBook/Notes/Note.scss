@@ -13,6 +13,15 @@
             justify-content: flex-start;
             flex-direction: column;
 
+            input{
+                width: 370px;
+                margin: 0px;
+                resize: none;
+                border-radius: 10px;
+                border:0;
+                padding: 10px;
+                margin: 10px;
+            }
             textarea{
                 width: 370px;
                 height: 400px;
@@ -22,6 +31,7 @@
                 border:0;
                 padding: 10px;
                 margin: 10px;
+                font: 400 13.3333px Arial;
 
                 *:focus {
                     outline: 0;
@@ -36,8 +46,21 @@
         padding: 30px 10px;
         width: 85%;
         display: grid;
-    
+
         .note{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            border-radius: 10px 10px;
+            border: 1px solid #fff;
+            text-align: left;
+        }
+
+        .text{
+            margin: 5px;
+        }
+    
+        .show_note{
             width: 98%;
             height: 38px;
             margin: 0 auto;
@@ -45,13 +68,10 @@
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
-            border-radius: 10px 10px;
-            border: 1px solid #fff;
-            text-align: left;
     
-            .text{
+            .heading{
                 margin: 5px;
-                width: 80%;
+                width: 75%;
             }
     
             .buttons{
@@ -72,6 +92,19 @@
     .icon-notes{
         background-color: inherit;
         border-color: transparent;
+    }
+    .icon-save{
+        display: inline-block;
+        color: white;
+        text-decoration: none;
+        padding: .5em 2em;
+        outline: none;
+        border-width: 2px 0;
+        border-style: solid none;
+        border-color: #FDBE33 #000 #D77206;
+        border-radius: 6px;
+        background: linear-gradient(#F3AE0F, #E38916) #E38916;
+        transition: 0.2s;
     }
     .icon-add,
     .icon-update{
