@@ -50,7 +50,7 @@ class Form extends React.Component{
                     edit: false
                 });
             } else {
-                for( let note of this.props.notes){
+                for( let note of this.props.notes.datas){
                     if(note.editing === true){
                         this.setState({
                             edit: !this.state.edit,

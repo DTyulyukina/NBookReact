@@ -4,7 +4,7 @@ import { createStore } from 'redux';
 import ListNotesContainer from './containers/ListNotesContainer';
 import FormContainer      from './containers/FormContainer';
 
-import data from './dates';
+import data from './dates.json';
 import './Note.scss';
 
 import reduser from './redusers';

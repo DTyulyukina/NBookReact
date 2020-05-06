@@ -1,49 +1,12 @@
-export const ADD_NOTES    = 'ADD_NOTES';
-export const DELETE_NOTES = 'DELETE_NOTES';
-export const UPDATE_NOTES = 'UPDATE_NOTES';
-export const FORM_EDIT    = 'FORM_EDIT';
-export const SHOW_NOTE    = 'SHOW_NOTE';
+export { ADD_NOTES,
+         DELETE_NOTES, 
+         UPDATE_NOTES, 
+         FORM_EDIT, 
+         SHOW_NOTE,
+         addNotes,
+         deleteNotes,
+         updateNotes,
+         editForm,
+         showNote} from './datas';
 
-let nextId = 6;
-
-export function addNotes(heading, text){
-    return {
-        type: ADD_NOTES,
-        id: nextId++,
-        heading,
-        text,
-        editing: false,
-        show_text: false
-    }
-}
-
-export function deleteNotes(id){
-    return {
-        type: DELETE_NOTES,
-        id
-    }
-}
-
-export function updateNotes(id, heading, text){
-    return {
-        type: UPDATE_NOTES,
-        id,
-        heading,
-        text,
-        editing: false
-    }
-}
-
-export function editForm(id){
-    return {
-        type: FORM_EDIT,
-        id
-    }
-}
-
-export function showNote(id){
-    return {
-        type: SHOW_NOTE,
-        id
-    }
-}
+export { SET_SEARCH, setSearch } from './search';

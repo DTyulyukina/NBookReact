@@ -6,7 +6,7 @@ function ListNotes(props){
         let styleList = {gridAutoRows: "minmax(" + 50 +"px, auto)", gridRowGap: 10 + 'px'};
         return (
                 <div className='list_notes' style={styleList}>
-                        {props.notes.map((note, index) =>
+                        {props.notes.datas.map((note, index) =>
                                 <Record 
                                        key={index} 
                                        id={note.id} 
