@@ -1,11 +1,20 @@
 .area-note{
-    display: grid;
-    height: 474px;
-    grid-template-columns: 40% 60%;
-    padding: 10px;
+    .search{
+        display: flex;
+        justify-content: flex-end;
+        padding: 20px 10px 0 0;
+        width: 87%;
+    }
 
     .form-notes{
         padding: 20px 0;
+    }
+
+    .container{
+        display: grid;
+        height: 474px;
+        grid-template-columns: 40% 60%;
+        padding: 5px;
     }
 
     .editing{
@@ -124,4 +133,33 @@
             margin: 5px;
         }
     }
+
+    .d1{
+        width: 378px;
+        display: flex;
+        align-content: flex-end;
+        align-items: center;
+        flex-direction: row;
+        form {
+            position: relative;
+            width: 300px;
+            margin: 0 auto;
+          }
+          input, button {
+            border: none;
+            outline: none;
+            border-radius: 3px;
+          }
+          input {
+            width: 100%;
+            height: 26px;
+            background: #F9F0DA;
+            padding-left: 15px;
+          }
+          button {
+            background: #F15B42;
+            cursor: pointer;
+          }
+    }
+
 }

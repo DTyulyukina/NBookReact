@@ -1,7 +1,7 @@
 export const ADD_NOTES    = 'ADD_NOTES';
 export const DELETE_NOTES = 'DELETE_NOTES';
 export const UPDATE_NOTES = 'UPDATE_NOTES';
-export const FORM_EDIT    = 'FORM_EDIT';
+export const TEXT_EDIT    = 'TEXT_EDIT';
 export const SHOW_NOTE    = 'SHOW_NOTE';
 
 let nextId = 6;
@@ -34,9 +34,9 @@ export function updateNotes(id, heading, text){
     }
 }
 
-export function editForm(id){
+export function editText(id){
     return {
-        type: FORM_EDIT,
+        type: TEXT_EDIT,
         id
     }
 }

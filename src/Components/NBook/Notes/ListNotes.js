@@ -15,7 +15,7 @@ function ListNotes(props){
                                        editing={note.editing}
                                        show_text={note.show_text}
                                        onDelete={props.onDelete}
-                                       editForm={props.editForm}
+                                       editText={props.editText}
                                        showNote={props.showNote}
                                 />)  
                         }

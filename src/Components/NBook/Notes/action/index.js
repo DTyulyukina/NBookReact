@@ -1,12 +1,12 @@
 export { ADD_NOTES,
          DELETE_NOTES, 
          UPDATE_NOTES, 
-         FORM_EDIT, 
+         TEXT_EDIT, 
          SHOW_NOTE,
          addNotes,
          deleteNotes,
          updateNotes,
-         editForm,
+         editText,
          showNote} from './datas';
 
-export { SET_SEARCH, setSearch } from './search';
+export { SET_SEARCH, setFilterNote } from './search';

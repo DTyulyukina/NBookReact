@@ -12,7 +12,7 @@ class Record extends React.Component{
 
     updateShowForm(event, id){
         event.preventDefault();
-        this.props.editForm(id);
+        this.props.editText(id);
     }
 
     render(){

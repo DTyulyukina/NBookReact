@@ -1,6 +1,6 @@
-export const SET_SEARCH = 'SET_SERCH';
+export const SET_SEARCH = 'SET_SEARCH';
 
-export function setSerch(search){
+export function setFilterNote(search){
     return {
         type: SET_SEARCH,
         search
