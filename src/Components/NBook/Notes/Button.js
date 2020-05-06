@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Delete            from '@material-ui/icons/Delete';
 import Edit              from '@material-ui/icons/Edit';
 import ArrowDropDownIcon from '@material-ui/icons/ArrowDropDown';
+import ArrowDropUpIcon   from '@material-ui/icons/ArrowDropUp';
 
 function Button(props){
     switch(props.icon){
@@ -35,7 +36,7 @@ function Button(props){
                         className={props.nameCss}>Update
                 </button>
             ); 
-        case "arrow":
+        case "arrow_down":
             return (
                 <button name={props.index} 
                         className={props.nameCss}
@@ -43,6 +44,14 @@ function Button(props){
                             <ArrowDropDownIcon>Arrow</ArrowDropDownIcon>
                 </button>
             );     
+        case "arrow_up":
+            return (
+                <button name={props.index} 
+                        className={props.nameCss}
+                        onClick={() => props.action(props.index)}>
+                            <ArrowDropUpIcon>Arrow</ArrowDropUpIcon>
+                </button>
+            );   
     } 
 }
 

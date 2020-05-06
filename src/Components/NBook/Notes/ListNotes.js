@@ -12,6 +12,7 @@ function ListNotes(props){
                                        id={note.id} 
                                        heading={note.heading}
                                        text={note.text}
+                                       editing={note.editing}
                                        show_text={note.show_text}
                                        onDelete={props.onDelete}
                                        editForm={props.editForm}

@@ -20,6 +20,8 @@ class Form extends React.Component{
 
         this.handleChangeText = this.handleChangeText.bind(this);
         this.handleChangeHead = this.handleChangeHead.bind(this);
+
+        this.addButtomFormatText = this.addButtomFormatText(this);
     }
 
     componentDidMount(){
@@ -96,6 +98,7 @@ class Form extends React.Component{
     formNewNote(){
         return (
             <div className="form-notes">
+                {this.addButtomFormatText}
                 <div className="editing">
                     <form className="form-list" onSubmit={(event) => this.handleSubmit(event)}>
                         <input type="text" placeholder="New title note" value={this.state.value_heading} 
@@ -114,6 +117,7 @@ class Form extends React.Component{
     formUpdateNote(){
         return (
             <div className="form-notes">
+                {this.addButtomFormatText}
                 <div className="editing">
                     <form className="form-list" onSubmit={(event) => this.handeleUpdate(event, this.state.id)}>
                         <input type="text" value={this.state.value_heading} 
@@ -127,6 +131,17 @@ class Form extends React.Component{
                 </div>
             </div>
         )    
+    }
+
+    addButtomFormatText(){
+        return (
+            <div className="format-text">
+                Format text:
+                <button className="font-style"><em>ft</em></button>
+                <button className="font-style"><b>ft</b></button>
+                <button className="font-style"><u>ft</u></button>
+            </div>
+        )
     }
 
     render(){

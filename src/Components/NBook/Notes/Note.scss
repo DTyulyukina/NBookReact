@@ -1,11 +1,15 @@
 .area-note{
     display: grid;
-    height: 700px;
+    height: 474px;
     grid-template-columns: 40% 60%;
     padding: 10px;
 
+    .form-notes{
+        padding: 20px 0;
+    }
+
     .editing{
-        padding: 20px 10px;
+        padding: 5px 10px;
         margin: 0 auto;
 
         .form-list{
@@ -24,7 +28,7 @@
             }
             textarea{
                 width: 370px;
-                height: 400px;
+                height: 265px;
                 margin: 0px;
                 resize: none;
                 border-radius: 10px;
@@ -109,5 +113,15 @@
     .icon-add,
     .icon-update{
         border-radius: 5px;
+    }
+
+    .format-text{
+        .font-style{
+            border-radius: 5px;
+            padding: 5px;
+            font-size: 14px;
+            width: 35px;
+            margin: 5px;
+        }
     }
 }

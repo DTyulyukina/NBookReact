@@ -23,12 +23,14 @@ class Record extends React.Component{
                         {this.props.heading}
                     </div>
                     <div className="buttons">
-                        <Button index={this.props.id} icon="arrow"  nameCss="icon-notes" action={this.props.showNote}/>
+                        { this.props.editing === true ? 
+                          <Button index={this.props.id} icon="arrow_up"   nameCss="icon-notes" action={this.props.showNote}/> :
+                          <Button index={this.props.id} icon="arrow_down" nameCss="icon-notes" action={this.props.showNote}/>}
                         <Button index={this.props.id} icon="update" nameCss="icon-notes" action={this.updateShowForm}/>
                         <Button index={this.props.id} icon="delete" nameCss="icon-notes" action={this.props.onDelete}/>
                     </div>
                 </div>
-                { this.props.show_text ? 
+                { this.props.show_text === true ? 
                     <div className="text">
                         {this.props.text}
                     </div> 
