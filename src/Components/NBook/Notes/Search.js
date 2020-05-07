@@ -1,5 +1,7 @@
 import React from 'react';
 
+import RadioButton from './RadioButton';
+
 import Searchs from '@material-ui/icons/Search';
 
 class Search extends React.Component{
@@ -16,6 +18,7 @@ class Search extends React.Component{
                        <button type="submit"><Searchs>Search</Searchs></button>
                     </div>
                 </form> 
+                <RadioButton />
             </div>    
         )
     }
