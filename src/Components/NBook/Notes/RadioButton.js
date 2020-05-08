@@ -5,8 +5,8 @@ class RadioButton extends React.Component{
         super();
 
         this.state = {
-            check_one: true,
-            check_two: false
+            check_one: '',
+            check_two: ''
         }
 
         this.changeInput = this.changeInput.bind(this);

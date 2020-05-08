@@ -36,7 +36,12 @@ class Search extends React.Component{
 
     handleChange(event){
         event.preventDefault();
-        let arr = this.state.check === 'title' ? 'TITLE' : 'TEXT';
+        let arr = '';
+        if(this.state.text === ''){
+            arr = 'ALL';
+        } else {
+            arr = this.state.check === 'title' ? 'TITLE' : 'TEXT';
+        }
         this.props.onSearch(arr, this.state.text);
     }
 
