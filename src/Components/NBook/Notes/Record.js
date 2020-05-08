@@ -8,6 +8,7 @@ class Record extends React.Component{
         super(props);
 
         this.updateShowForm = this.updateShowForm.bind(this);
+        this.createHtml     = this.createHtml.bind(this);
     }
 
     updateShowForm(event, id){
@@ -15,12 +16,16 @@ class Record extends React.Component{
         this.props.editText(id);
     }
 
+    createHtml() {
+        return {__html: this.props.heading};
+    }
+
     render(){
         return (
             <div className="note">
                 <div className="show_note">
                     <div className="heading">
-                        {this.props.heading}
+                       <div dangerouslySetInnerHTML={this.createHtml()} />
                     </div>
                     <div className="buttons">
                         { this.props.editing === true ? 
