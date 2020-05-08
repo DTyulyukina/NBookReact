@@ -42,7 +42,7 @@ function reduserNotes(state = {}, action){
     }
 }
 
-function reducer(state = [], action){
+export default function reducer(state = [], action){
     switch(action.type){
         case ADD_NOTES:
             return [ ...state, reduserNotes(undefined, action)];
@@ -69,7 +69,18 @@ function reducer(state = [], action){
 
         default:
             return state;
-    }
+    } 
 }
 
-export default reducer;
+export function getSearchNotes( state, search, text ){
+    switch (search){
+        case 'ALL':
+            return state;
+        
+        case 'TITLE':
+            return state.filter( note => note.heading === text);
+
+        case 'TEXT': 
+            return state.filter( note => note.text.includes(text, 0) === true);
+    }
+}
