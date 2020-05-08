@@ -192,7 +192,7 @@ class Form extends React.Component{
     addButtomFormatText(){
         return (
             <div className="format-text">
-                Format text:
+                Format text title:
                 <button className="font-style" onClick={(event) => this.focusInputText(event, 'italic')}><em>ft</em></button>
                 <button className="font-style" onClick={(event) => this.focusInputText(event, 'strong')}><b>ft</b></button>
                 <button className="font-style" onClick={(event) => this.focusInputText(event, 'border')}><u>ft</u></button>

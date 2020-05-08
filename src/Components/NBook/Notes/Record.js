@@ -7,6 +7,8 @@ class Record extends React.Component{
     constructor(props){
         super(props);
 
+        this.el = document.createElement('div');
+
         this.updateShowForm = this.updateShowForm.bind(this);
         this.createHtml     = this.createHtml.bind(this);
     }
