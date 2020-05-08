@@ -3,22 +3,9 @@ import { connect } from 'react-redux';
 import Form from '../Form';
 import {addNotes, updateNotes} from '../action';
 
-function getSearchNotes( notes, search ){
-    switch (search){
-        case 'ALL':
-            return notes;
-        
-        case 'TITLE':
-            return notes.filter( note => note.heading);
-
-        case 'TEXT': 
-            return notes.filter( note => note.text)
-    }
-}
-
 function mapStateToProps(state){
     return {
-        notes: getSearchNotes(state.note, state.search)
+        notes: state
     };
 }
 

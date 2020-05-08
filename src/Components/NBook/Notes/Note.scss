@@ -67,6 +67,9 @@
             border-radius: 10px 10px;
             border: 1px solid #fff;
             text-align: left;
+            height: auto;
+            max-height: 90px;
+            min-height: 0;
         }
 
         .text{

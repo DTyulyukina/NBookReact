@@ -36,5 +36,7 @@
             "show_text": false
         }
     ],
-    "search" : "ALL"
+    "search" : {
+        "type": "ALL"
+    }
 }

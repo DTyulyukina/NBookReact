@@ -11,7 +11,7 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return {
-        onSearch: search => dispatch(setFilterNote(search))
+        onSearch: (search, text) => dispatch(setFilterNote(search, text))
     };
 }
 
