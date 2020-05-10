@@ -17,7 +17,7 @@ class RadioButton extends React.Component{
     }
 
     componentWillUnmount(){
-        this.setState({ check_one: true, check_two: false});
+        this.setState({ check_one: '', check_two: ''});
     }
 
     changeInput(event){
