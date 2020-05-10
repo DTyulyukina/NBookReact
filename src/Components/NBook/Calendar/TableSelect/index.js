@@ -11,11 +11,13 @@ class Headers extends React.Component {
             weekdaysname: []
         }
     }
-    componentWillMount() {
+
+    componentDidMount(){
         const weekdays = moment.weekdays(true);
         let arrayNameDay = [];
         weekdays.map((name) => {
             arrayNameDay.push(<th key={name} className="week-day">{ name }</th>);
+            return console.log('load week day');
         });
         this.setState({
             weekdaysname: arrayNameDay

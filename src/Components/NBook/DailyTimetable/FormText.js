@@ -115,10 +115,13 @@ class FormTex extends React.Component{
                     "day": value.day,
                     "text": text,
                     "hour_start": value.hour_start,
-                    "hour_end": value.hour_end};
+                    "hour_end": value.hour_end
+                };
                 newMassiv.push(event);
+                return console.log('update event');
             } else {
                 newMassiv.push(value);
+                return console.log('not update event');
             }
         });
         if(array !== newMassiv){

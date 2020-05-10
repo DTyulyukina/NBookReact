@@ -39,6 +39,9 @@ function reduserNotes(state = {}, action){
             return Object.assign({}, state, {
                 show_text: !state.show_text
             })
+        
+        default:
+            return state;
     }
 }
 
@@ -82,5 +85,8 @@ export function getSearchNotes( state, search, text ){
 
         case 'TEXT': 
             return state.filter( note => note.text.includes(text, 0) === true);
+        
+        default:
+            return state;
     }
 }

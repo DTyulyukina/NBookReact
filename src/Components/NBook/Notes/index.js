@@ -1,5 +1,4 @@
 import React from 'react'; 
-import { createStore } from 'redux';
 
 import SearchContainer     from './containers/SearchContainer';
 import ListNotesContainer from './containers/ListNotesContainer';

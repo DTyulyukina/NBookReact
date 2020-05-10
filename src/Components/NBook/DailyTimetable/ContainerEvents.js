@@ -63,6 +63,7 @@ class ContainerEvents extends React.Component {
                                              />);
                 }
             }
+            return console.log('load event day');
           }
         );
         return daysEvents;

@@ -51,7 +51,13 @@ function Button(props){
                         onClick={() => props.action(props.index)}>
                             <ArrowDropUpIcon>Arrow</ArrowDropUpIcon>
                 </button>
-            );   
+            ); 
+            
+        default:
+            return (
+                <p>Not element...</p>
+            );
+
     } 
 }
 
