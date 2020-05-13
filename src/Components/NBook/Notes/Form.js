@@ -73,30 +73,34 @@ class Form extends React.Component{
     }
 
     handleSubmit(event){
-        this.props.onAdd(this.state.value_heading, this.state.value_text);
-        this.setState({
-            id: null,
-            value_heading: '',
-            value_text: '',
-            format: '',
-            value_focus: ''
-        });
-        event.target[0].value = '';
-        event.target[0].nextElementSibling.value = '';
+        if(this.state.value_heading!=='' || this.state.value_text!==''){
+            this.props.onAdd(this.state.value_heading, this.state.value_text);
+            this.setState({
+                id: null,
+                value_heading: '',
+                value_text: '',
+                format: '',
+                value_focus: ''
+            });
+            event.target[0].value = '';
+            event.target[0].nextElementSibling.value = '';
+        }
         event.preventDefault();
     }
 
     handeleUpdate(event, id){
-        this.props.onUpdate(id, this.state.value_heading, this.state.value_text);
-        event.target[0].value = '';
-        event.target[0].nextElementSibling.value = '';
-        this.setState({
-            id: null,
-            value_heading: '',
-            value_text: '',
-            format: '',
-            value_focus: ''
-        });
+        if(this.state.value_heading!=='' || this.state.value_text!==''){
+            this.props.onUpdate(id, this.state.value_heading, this.state.value_text);
+            event.target[0].value = '';
+            event.target[0].nextElementSibling.value = '';
+            this.setState({
+              id: null,
+              value_heading: '',
+              value_text: '',
+              format: '',
+              value_focus: ''
+            });
+        }
         event.preventDefault();
     }
 
